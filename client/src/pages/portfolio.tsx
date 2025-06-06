@@ -390,7 +390,7 @@ export default function Portfolio() {
               />
             </AnimatedSection>
             
-            <AnimatedSection>
+            <AnimatedSection className="order-1 md:order-2">
               <h3 className="text-2xl font-bold mb-6">Education & Achievements</h3>
               
               <div className="space-y-6">
@@ -686,7 +686,7 @@ export default function Portfolio() {
                 />
               </AnimatedSection>
               
-              <AnimatedSection>
+              <AnimatedSection className="order-1 md:order-2">
                 <div className="space-y-8">
                   <div className="text-center">
                     <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>

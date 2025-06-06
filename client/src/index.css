@@ -173,3 +173,45 @@
   transform: translateY(-8px);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .animate-fade-in-up {
+    animation-duration: 0.6s;
+  }
+  
+  .animate-fade-in-left,
+  .animate-fade-in-right {
+    animation-duration: 0.6s;
+  }
+  
+  .gradient-text {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Smooth scrolling for all devices */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
