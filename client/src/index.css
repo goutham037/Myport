@@ -169,6 +169,29 @@
   .backface-hidden {
     backface-visibility: hidden;
   }
+
+  /* Vintage Business Card Styles */
+  .vintage-card-container {
+    width: 350px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .vintage-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .rotateY-12 {
+    transform: rotateY(12deg) rotateX(5deg);
+  }
+  
+  .border-3 {
+    border-width: 3px;
+  }
 }
 
 @keyframes gradient-shift {
@@ -362,6 +385,11 @@
   
   .project-card-hover:hover {
     transform: translateY(-6px) scale(1.01);
+  }
+  
+  .vintage-card-container {
+    width: 280px;
+    height: 160px;
   }
   
   /* Improve touch targets */
