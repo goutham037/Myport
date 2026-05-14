@@ -57,7 +57,7 @@ export function HeroPremium() {
         aria-hidden
       />
 
-      {/* Large ambient figure — full-bleed left, masked into white (no card, no corners, no “photo UI”) */}
+      {/* Ambient figure — desktop only (mobile uses stacked portrait below so the face isn’t cropped off) */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-[1] hidden w-[min(58vw,42rem)] select-none lg:block"
         aria-hidden
@@ -94,8 +94,22 @@ export function HeroPremium() {
 
       <span className="sr-only">{`${SITE.fullName}, ${SITE.headline}. ${HERO_DESCRIPTION}`}</span>
 
-      {/* Copy only — padding clears the masked figure on large screens; no image column */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 md:pb-36 md:pt-24 lg:px-8 lg:pt-28 lg:pl-[min(30rem,42vw)] xl:pl-[min(34rem,40vw)]">
+      {/* Mobile: full-width flow + centered portrait (face visible). Desktop: padding clears ambient strip. */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 md:pb-36 md:pt-24 lg:px-8 lg:pl-[min(30rem,42vw)] lg:pt-28 xl:pl-[min(34rem,40vw)]">
+        {/* Stacked portrait on small screens only (avoids side-strip cropping your face) */}
+        <div className="mb-10 flex justify-center lg:mb-0 lg:hidden">
+          <div className="relative w-[min(88vw,20rem)] overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-50 shadow-sm sm:w-[min(80vw,22rem)] sm:rounded-3xl">
+            <img
+              src={SITE.profilePhoto}
+              alt={SITE.fullName}
+              width={720}
+              height={960}
+              className="aspect-[3/4] w-full object-cover object-top sm:aspect-[4/5]"
+              decoding="async"
+            />
+          </div>
+        </div>
+
         <motion.div
           initial={reduce ? false : "hidden"}
           animate={reduce ? undefined : "show"}
@@ -185,7 +199,7 @@ export function HeroPremium() {
       </div>
 
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent sm:h-40"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-28 bg-gradient-to-t from-[#F8FAFC] to-transparent sm:h-32 lg:h-40"
         aria-hidden
       />
 
