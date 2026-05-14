@@ -4,7 +4,7 @@
  */
 export const DESIGN_SPEC = {
   brand: {
-    name: "Sharan",
+    name: "Sharan Goutham",
     /** One-line brand lockup shown in hero / nav */
     lockup: "Sociovia · AI & growth engineering",
     role: "Lead AI Developer · Sociovia",

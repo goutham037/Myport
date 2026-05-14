@@ -10,6 +10,10 @@ const HERO_TEXT = "#0F172A";
 const HERO_DESCRIPTION =
   "I build production systems where ads data, CRM state, assistants, and backend services come together — turning scattered workflows into automated growth infrastructure.";
 
+/** Soft horizontal dissolve into the page — reads as canvas, not a photo box. */
+const FIGURE_MASK =
+  "linear-gradient(to right, #000 0%, #000 28%, rgba(0,0,0,0.55) 48%, rgba(0,0,0,0.2) 68%, transparent 100%)";
+
 /** Headline with gradient only on “AI”. */
 function HeadlineWithAIGradient({ text }: { text: string }) {
   const parts = text.split("AI");
@@ -39,7 +43,6 @@ export function HeroPremium() {
       id="hero"
       className="relative scroll-mt-24 overflow-hidden border-b border-slate-200/60 bg-white min-h-0 md:min-h-[100svh] lg:min-h-[110vh]"
     >
-      {/* Background — no blur, soft flat gradients only */}
       <div className="pointer-events-none absolute inset-0 bg-white" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 opacity-60 motion-reduce:opacity-40"
@@ -54,49 +57,50 @@ export function HeroPremium() {
         aria-hidden
       />
 
+      {/* Large ambient figure — full-bleed left, masked into white (no card, no corners, no “photo UI”) */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-[1] hidden w-[min(58vw,42rem)] select-none lg:block"
+        aria-hidden
+      >
+        <div
+          className="relative h-full w-full"
+          style={{
+            WebkitMaskImage: FIGURE_MASK,
+            maskImage: FIGURE_MASK,
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+          }}
+        >
+          <img
+            src={SITE.profilePhoto}
+            alt=""
+            width={900}
+            height={1400}
+            className="h-[115%] w-full max-w-none -translate-y-[3%] object-cover object-[center_8%] opacity-[0.88] saturate-[0.92] motion-reduce:translate-y-0 motion-reduce:scale-100"
+            decoding="async"
+            aria-hidden
+          />
+        </div>
+        {/* Tiny cool wash so pixels tie to the hero grade, not a pasted JPEG */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(248,250,252,0.12)] to-white/95"
+          style={{
+            WebkitMaskImage: FIGURE_MASK,
+            maskImage: FIGURE_MASK,
+          }}
+          aria-hidden
+        />
+      </div>
+
       <span className="sr-only">{`${SITE.fullName}, ${SITE.headline}. ${HERO_DESCRIPTION}`}</span>
 
-      {/* Content: stacked ≤1023px; two columns ≥1024px — no absolute portrait, no fog overlays */}
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 pb-32 pt-16 sm:gap-10 sm:px-6 sm:pt-20 md:gap-12 md:pb-36 md:pt-24 lg:grid-cols-[minmax(260px,38%)_minmax(0,1fr)] lg:items-start lg:gap-14 lg:px-8 lg:pt-28 xl:gap-16">
-        {/* Portrait */}
-        <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:mx-0 lg:max-w-none">
-          <div className="group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-md sm:rounded-3xl lg:rounded-3xl lg:border-slate-200/70">
-            {/* Sharp glow (no filter: blur) */}
-            <div
-              className="pointer-events-none absolute inset-0 opacity-50 transition-opacity duration-300 group-hover:opacity-80"
-              style={{
-                background: `radial-gradient(ellipse 85% 75% at 50% 20%, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.06) 45%, transparent 70%)`,
-              }}
-              aria-hidden
-            />
-            <img
-              src={SITE.profilePhoto}
-              alt=""
-              width={720}
-              height={1200}
-              className="relative z-[1] aspect-[3/4] w-full object-cover object-top transition-transform duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:scale-100 group-hover:scale-[1.03] sm:aspect-[4/5] lg:aspect-auto lg:min-h-[min(78vh,720px)] lg:max-h-[85vh]"
-              style={{ objectPosition: "center top" }}
-              decoding="async"
-              aria-hidden
-            />
-            {/* Light bottom edge only — blends into section, not a full fog */}
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-1/4 bg-gradient-to-t from-white/90 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-[2] rounded-2xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4)] transition-shadow duration-300 group-hover:shadow-[inset_0_0_0_2px_rgba(37,99,235,0.35),0_0_0_3px_rgba(37,99,235,0.2)] sm:rounded-3xl"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        {/* Copy */}
+      {/* Copy only — padding clears the masked figure on large screens; no image column */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 md:pb-36 md:pt-24 lg:px-8 lg:pt-28 lg:pl-[min(30rem,42vw)] xl:pl-[min(34rem,40vw)]">
         <motion.div
           initial={reduce ? false : "hidden"}
           animate={reduce ? undefined : "show"}
           variants={reduce ? undefined : staggerChildren}
-          className="flex min-w-0 flex-col text-center sm:text-left lg:pt-2 xl:pt-6"
+          className="mx-auto flex min-w-0 max-w-2xl flex-col text-center sm:mx-0 sm:max-w-none sm:text-left lg:max-w-2xl"
         >
           <motion.span
             variants={{
@@ -171,7 +175,7 @@ export function HeroPremium() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Résumé
+                  Resume
                   <ExternalLink className="ml-2 h-4 w-4 opacity-70" aria-hidden />
                 </a>
               </Button>

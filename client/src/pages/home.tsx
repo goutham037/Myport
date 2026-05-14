@@ -16,10 +16,10 @@ import { Button } from "@/components/ui/button";
 import { Download, Mail, Phone } from "lucide-react";
 
 const META =
-  "Sharan — Lead AI Developer @ Sociovia. AI-powered growth infrastructure: ads, CRM, conversational AI, backend automation.";
+  "Sharan Goutham — Lead AI Developer @ Sociovia. AI-powered growth infrastructure: ads, CRM, conversational AI, backend automation.";
 
 export default function HomePage() {
-  usePageMeta("Sharan | Lead AI Developer @ Sociovia — AI Growth Infrastructure", META);
+  usePageMeta("Sharan Goutham | Lead AI Developer @ Sociovia — AI Growth Infrastructure", META);
   const reduce = useReducedMotion();
 
   return (
