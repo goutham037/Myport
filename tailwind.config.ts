@@ -5,6 +5,11 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sora: ["Sora", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -64,25 +69,42 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "float-soft": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        aurora: {
+          "0%, 100%": { opacity: "0.45", transform: "scale(1) translate(0,0)" },
+          "50%": { opacity: "0.75", transform: "scale(1.05) translate(2%, -2%)" },
+        },
+        "fade-edge": {
+          "0%, 100%": { opacity: "0.35" },
+          "50%": { opacity: "0.65" },
+        },
+        "scroll-cue": {
+          "0%, 100%": { transform: "translateY(0)", opacity: "0.35" },
+          "50%": { transform: "translateY(8px)", opacity: "1" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float-soft": "float-soft 7s ease-in-out infinite",
+        aurora: "aurora 14s ease-in-out infinite",
+        "fade-edge": "fade-edge 2.4s ease-in-out infinite",
+        "scroll-cue": "scroll-cue 2.2s ease-in-out infinite",
+        shimmer: "shimmer 2.5s linear infinite",
       },
     },
   },

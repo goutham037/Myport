@@ -2,49 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Premium light brand — indigo primary, cyan accent, white / slate surfaces */
 :root {
-  --background: 222 84% 5%; /* #020617 - deep-dark */
-  --foreground: 210 40% 98%; /* #F1F5F9 - slate-100 */
-  --muted: 217 32% 17%; /* #1E293B - slate-gray */
-  --muted-foreground: 215 16% 47%; /* #64748B */
-  --popover: 222 84% 5%;
-  --popover-foreground: 210 40% 98%;
-  --card: 222 47% 11%; /* #0F172A - dark-navy */
-  --card-foreground: 210 40% 98%;
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --primary: 221 83% 53%; /* #3B82F6 - blue-500 */
-  --primary-foreground: 210 40% 98%;
-  --secondary: 217 32% 17%;
-  --secondary-foreground: 210 40% 98%;
-  --accent: 158 64% 52%; /* #10B981 - emerald-500 */
-  --accent-foreground: 210 40% 98%;
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --muted: 210 40% 98%;
+  --muted-foreground: 215 16% 47%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --primary: 239 75% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 98%;
+  --secondary-foreground: 222 47% 11%;
+  --accent: 188 85% 43%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
-  --ring: 221 83% 53%;
-  --radius: 0.75rem;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 239 75% 58%;
+  --radius: 0.875rem;
 }
 
 .dark {
-  --background: 222 84% 5%;
+  --background: 222 47% 11%;
   --foreground: 210 40% 98%;
-  --muted: 217 32% 17%;
-  --muted-foreground: 215 16% 47%;
-  --popover: 222 84% 5%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --popover: 222 47% 11%;
   --popover-foreground: 210 40% 98%;
-  --card: 222 47% 11%;
+  --card: 222 40% 14%;
   --card-foreground: 210 40% 98%;
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --primary: 221 83% 53%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 217 32% 17%;
+  --border: 217 33% 22%;
+  --input: 217 33% 22%;
+  --primary: 239 72% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%;
   --secondary-foreground: 210 40% 98%;
-  --accent: 158 64% 52%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 84% 60%;
+  --accent: 188 85% 48%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 62% 50%;
   --destructive-foreground: 210 40% 98%;
-  --ring: 221 83% 53%;
+  --ring: 239 72% 58%;
 }
 
 @layer base {
@@ -53,8 +54,14 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
   }
   
   html {
@@ -68,17 +75,17 @@
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #3B82F6, #10B981, #8B5CF6);
+    background: linear-gradient(135deg, #4f46e5, #06b6d4, #7c3aed);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-shift 4s ease infinite;
+    animation: gradient-shift 5s ease infinite;
   }
   
   .gradient-border {
     position: relative;
-    background: linear-gradient(135deg, #3B82F6, #10B981, #8B5CF6);
+    background: linear-gradient(135deg, #4f46e5, #06b6d4, #7c3aed);
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
     border-radius: 1rem;
