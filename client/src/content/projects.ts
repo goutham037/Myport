@@ -51,6 +51,7 @@ export const projects: Project[] = [
     description:
       "Depth estimation and rendering pipeline packaged for classroom and demo use. Winner at institute & district levels; Top 5 at state; research published in IJARST.",
     tags: ["Python", "Android", "3D reconstruction", "EdTech", "Research"],
+    image: "/projects/smart-holovision.jpg",
     links: [
       { label: "View research", href: "https://ijarst.in/public/uploads/paper/622611742289897.pdf" },
       { label: "GitHub", href: "#" },
@@ -83,6 +84,7 @@ export const projects: Project[] = [
     description:
       "Retrieval-augmented answers over scraped and indexed portal data; quizzes and reminders via Telegram Bot API; reduces time lost navigating official sites.",
     tags: ["Python", "JavaScript", "RAG", "Telegram API", "Android", "Web scraping"],
+    image: "/projects/miss-minutes.jpg",
     links: [
       { label: "View system", href: "#" },
       { label: "GitHub", href: "#" },
@@ -99,6 +101,7 @@ export const projects: Project[] = [
     description:
       "Kotlin / Firebase / Android app with adaptive difficulty, admin tooling, and chatbot integration — prepared for market launch.",
     tags: ["Kotlin", "Firebase", "Android", "Educational", "Analytics", "AI"],
+    image: "/projects/quizmaker.jpg",
     links: [
       { label: "Try demo", href: "https://drive.google.com/file/d/1zwvOJlAuujuDQRJq25FhygAIvcvYcc6N/view?usp=drivesdk" },
       { label: "GitHub", href: "#" },
@@ -131,6 +134,7 @@ export const projects: Project[] = [
     description:
       "Automates retrieval of attendance, results, timetables, regulations, placements, admissions, faculty info, and student services through both web and WhatsApp interfaces.",
     tags: ["Python", "FastAPI", "React", "Qdrant", "Gemini", "RAG", "WhatsApp"],
+    image: "/projects/ask-griet.jpg",
     links: [{ label: "Live Demo", href: "https://g-ssc.netlify.app/" }],
     featured: true,
   },
