@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { PageLayout } from "@/components/site/PageLayout";
 import { HeroPremium } from "@/components/blueprint/HeroPremium";
-import { TrustMetricCards } from "@/components/blueprint/TrustMetricCards";
 import { AnimatedSection } from "@/components/blueprint/AnimatedSection";
 import { SystemCard } from "@/components/portfolio/SystemCard";
 import { systems } from "@/components/portfolio/systems";
@@ -27,7 +26,6 @@ export default function HomePage() {
   return (
     <PageLayout>
       <HeroPremium />
-      <TrustMetricCards />
 
       <AnimatedSection id="about" eyebrow="About" title="Startup engineer, systems-first" innerMax="3xl">
         <motion.div

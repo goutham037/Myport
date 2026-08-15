@@ -35,21 +35,12 @@ export const DESIGN_SPEC = {
   },
   sectionOrder: [
     "Hero",
-    "Trust metrics",
     "About",
     "Systems built",
+    "Projects",
     "Experience",
     "Core expertise",
-    "Currently building",
-    "Recognition",
     "Contact",
-  ],
-  trustMetrics: [
-    "Paid social: ingestion → fatigue → retargeting in one loop",
-    "CRM & lifecycle automation wired to revenue, not vanity KPIs",
-    "CI/CD and service boundaries that keep releases boring",
-    "Assistants and agents scoped, grounded, and safe to scale",
-    "Hands-on core of a revenue-bearing product org",
   ],
   about: {
     paragraphs: [
@@ -58,12 +49,6 @@ export const DESIGN_SPEC = {
       "At Sociovia I own slices of the stack end-to-end: from MVP spikes to the guardrails that keep production calm.",
     ],
   },
-  currentlyBuilding: [
-    "Deeper Google Ads ecosystem wiring (signals, budgets, experiments)",
-    "Business-aware assistants with escalation and audit trails",
-    "Cross-channel automation that respects rate limits and data residency",
-    "Operator dashboards that answer “what changed?” in one glance",
-  ],
   coreExpertise: [
     "LLM productization",
     "Python & FastAPI services",
@@ -76,10 +61,6 @@ export const DESIGN_SPEC = {
     "System & MVP architecture",
     "Technical writing for handoff",
   ],
-  recognition: {
-    quote:
-      "Internally recognized as “System Pillar” for owning foundational paths — the parts of the platform other teams stand on every day.",
-  },
   /** Section chrome, meta, hero CTAs, and hero visual copy — single source for home + components */
   page: {
     metaTitle: "Sharan · Lead AI Developer — Sociovia (growth systems)",
@@ -105,15 +86,6 @@ export const DESIGN_SPEC = {
       eyebrow: "Ownership map",
       title: "Disciplines in rotation",
       subtitle: "What I reach for when the problem is fuzzy but the bar for production isn’t.",
-    },
-    building: {
-      eyebrow: "Next",
-      title: "On the bench",
-    },
-    recognition: {
-      eyebrow: "Peers",
-      title: "Signal from the org",
-      footer: "Internal recognition · Sociovia",
     },
     contact: {
       eyebrow: "Reach",

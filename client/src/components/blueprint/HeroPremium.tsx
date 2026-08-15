@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/content/site";
@@ -34,13 +35,43 @@ function HeadlineWithAIGradient({ text }: { text: string }) {
   );
 }
 
+/** Bold name flips in word-by-word out of 3D space — needs an ancestor with CSS `perspective` set. */
+function BoldNameReveal({ text, reduce }: { text: string; reduce: boolean | null }) {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((word, i) => (
+        <motion.span
+          key={word + i}
+          className="inline-block will-change-transform"
+          initial={reduce ? false : { opacity: 0, y: 34, rotateX: -60 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 0.7, ease: easeOutExpo, delay: reduce ? 0 : 0.3 + i * 0.1 }}
+          style={{ transformOrigin: "50% 100%", marginRight: "0.24em" }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </>
+  );
+}
+
 export function HeroPremium() {
   const reduce = useReducedMotion();
   const roleTitle = SITE.headline.split("·")[0]?.trim() ?? "Lead AI Developer";
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 70]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <section
       id="hero"
+      ref={heroRef}
       className="relative scroll-mt-24 overflow-hidden border-b border-slate-200/60 bg-white min-h-0 md:min-h-[100svh] lg:min-h-[110vh]"
     >
       <div className="pointer-events-none absolute inset-0 bg-white" aria-hidden />
@@ -52,14 +83,16 @@ export function HeroPremium() {
         }}
         aria-hidden
       />
-      <div
+      <motion.div
         className="pointer-events-none absolute inset-0 opacity-[0.3] motion-reduce:opacity-[0.12] [background-image:radial-gradient(rgb(148_163_184/0.12)_1px,transparent_1px)] [background-size:24px_24px] sm:[background-size:28px_28px]"
+        style={reduce ? undefined : { y: bgY }}
         aria-hidden
       />
 
       {/* Ambient figure — desktop only (mobile uses stacked portrait below so the face isn’t cropped off) */}
-      <div
+      <motion.div
         className="pointer-events-none absolute inset-y-0 left-0 z-[1] hidden w-[min(58vw,42rem)] select-none lg:block"
+        style={reduce ? undefined : { y: photoY, scale: photoScale }}
         aria-hidden
       >
         <div
@@ -90,7 +123,7 @@ export function HeroPremium() {
           }}
           aria-hidden
         />
-      </div>
+      </motion.div>
 
       <span className="sr-only">{`${SITE.fullName}, ${SITE.headline}. ${HERO_DESCRIPTION}`}</span>
 
@@ -111,10 +144,14 @@ export function HeroPremium() {
         </div>
 
         <motion.div
+          style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
+          className="mx-auto flex min-w-0 max-w-2xl flex-col text-center sm:mx-0 sm:max-w-none sm:text-left lg:max-w-2xl"
+        >
+        <motion.div
           initial={reduce ? false : "hidden"}
           animate={reduce ? undefined : "show"}
           variants={reduce ? undefined : staggerChildren}
-          className="mx-auto flex min-w-0 max-w-2xl flex-col text-center sm:mx-0 sm:max-w-none sm:text-left lg:max-w-2xl"
+          className="flex flex-col"
         >
           <motion.span
             variants={{
@@ -128,16 +165,12 @@ export function HeroPremium() {
             {SITE.lockup}
           </motion.span>
 
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOutExpo } },
-            }}
+          <p
             className="font-sora text-4xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl"
-            style={{ color: HERO_TEXT }}
+            style={{ color: HERO_TEXT, perspective: 800 }}
           >
-            {SITE.name}
-          </motion.p>
+            <BoldNameReveal text={SITE.name} reduce={reduce} />
+          </p>
 
           <motion.h1
             variants={{
@@ -195,6 +228,7 @@ export function HeroPremium() {
               </Button>
             </motion.div>
           </motion.div>
+        </motion.div>
         </motion.div>
       </div>
 

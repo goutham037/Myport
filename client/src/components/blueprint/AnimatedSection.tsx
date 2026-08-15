@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef, type ReactNode } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { easeOutExpo } from "@/lib/motion";
 
@@ -31,17 +31,21 @@ export function AnimatedSection({
   children,
 }: Props) {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const blobY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
   return (
     <motion.section
       id={id}
+      ref={sectionRef}
       className={cn("relative scroll-mt-24 overflow-hidden border-b", shell[variant], "px-4 py-20 md:py-24")}
       initial={reduce ? false : { opacity: 0, y: 36 }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8% 0px" }}
       transition={{ duration: reduce ? 0 : 0.72, ease: easeOutExpo }}
     >
-      <div
+      <motion.div
         className="pointer-events-none absolute inset-0 opacity-[0.45] motion-reduce:opacity-25"
         aria-hidden
         style={{
@@ -49,6 +53,7 @@ export function AnimatedSection({
             variant === "muted"
               ? "radial-gradient(ellipse 80% 50% at 100% 0%, rgba(79,70,229,0.06), transparent 55%), radial-gradient(ellipse 60% 40% at 0% 100%, rgba(6,182,212,0.05), transparent 50%)"
               : "radial-gradient(ellipse 70% 45% at 0% 0%, rgba(79,70,229,0.05), transparent 50%)",
+          y: reduce ? undefined : blobY,
         }}
       />
       <div className={cn("relative mx-auto", innerMax === "3xl" ? "max-w-3xl" : "max-w-6xl")}>
@@ -72,7 +77,7 @@ export function AnimatedSection({
           />
         </div>
         <motion.h2
-          className="mt-5 font-sora text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl"
+          className="mt-5 font-sora text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl lg:text-6xl"
           initial={reduce ? false : { opacity: 0, y: 22, filter: "blur(10px)" }}
           whileInView={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
