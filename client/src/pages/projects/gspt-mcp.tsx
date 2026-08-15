@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, Github, ExternalLink, ImageIcon } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -58,18 +58,6 @@ const PROMPTS = [
   },
 ];
 
-function ImgPlaceholder({ label, aspectClass = "aspect-video" }: { label: string; aspectClass?: string }) {
-  return (
-    <div
-      className={`${aspectClass} w-full rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center gap-3 text-slate-400`}
-    >
-      <ImageIcon className="h-8 w-8 opacity-40" />
-      <p className="text-sm font-medium">{label}</p>
-      <p className="text-xs opacity-60">Replace with actual screenshot</p>
-    </div>
-  );
-}
-
 export default function GsptMcpPage() {
   usePageMeta(
     "GSPT — GRIET Portal MCP Server | Sharan Goutham",
@@ -123,14 +111,19 @@ export default function GsptMcpPage() {
         </div>
       </motion.section>
 
-      {/* hero image placeholder */}
+      {/* hero screenshot */}
       <motion.div
         className="mx-auto max-w-5xl px-4 pb-16"
         initial={reduce ? false : { opacity: 0, y: 16 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.1, ease: easeOutExpo }}
       >
-        <ImgPlaceholder label="Demo — ChatGPT calling get_my_attendance and showing the output" />
+        <img
+          src="/projects/gspt/demo.png"
+          alt="ChatGPT calling get_my_attendance — tool call and attendance table result"
+          className="w-full rounded-2xl border border-slate-200 shadow-lg"
+          loading="lazy"
+        />
       </motion.div>
 
       {/* what it does */}
@@ -174,7 +167,12 @@ export default function GsptMcpPage() {
           <p className="text-slate-600 mb-8 max-w-2xl">
             ChatGPT calls the MCP endpoint → uvicorn receives the request → FastMCP dispatches to the tool handler → Playwright opens a headless browser, logs in, and intercepts the AJAX response → parsed JSON flows back to ChatGPT.
           </p>
-          <ImgPlaceholder label="Architecture diagram — ChatGPT → MCP server → Playwright → GRIET portal AJAX" />
+          <img
+            src="/projects/gspt/architecture.png"
+            alt="Architecture diagram — ChatGPT to MCP server to Playwright to GRIET portal"
+            className="w-full rounded-2xl border border-slate-200 shadow-sm"
+            loading="lazy"
+          />
         </div>
       </section>
 
@@ -208,7 +206,12 @@ export default function GsptMcpPage() {
           </motion.div>
 
           <div className="mt-10">
-            <ImgPlaceholder label="Screenshot — ChatGPT plugin 'New Plugin' dialog with server URL filled in" />
+            <img
+            src="/projects/gspt/plugin-dialog.png"
+            alt="ChatGPT Add plugin dialog with server URL https://gspt-4dis.onrender.com/mcp"
+            className="w-full rounded-2xl border border-slate-200 shadow-lg"
+            loading="lazy"
+          />
           </div>
         </div>
       </section>
@@ -229,7 +232,12 @@ export default function GsptMcpPage() {
           </div>
 
           <div className="mt-10">
-            <ImgPlaceholder label="Screenshot — ChatGPT output showing attendance table with subjects flagged below 75%" />
+            <img
+            src="/projects/gspt/attendance-output.png"
+            alt="Full attendance report — table with colored rows and classes-needed breakdown"
+            className="w-full rounded-2xl border border-slate-200 shadow-lg"
+            loading="lazy"
+          />
           </div>
         </div>
       </section>
