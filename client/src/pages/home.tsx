@@ -11,7 +11,7 @@ import { DESIGN_SPEC } from "@/content/designSpec";
 import { SOCOVIA_EXPERIENCE_BULLETS } from "@/content/sociovia";
 import { SITE } from "@/content/site";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { listStagger, lineItem } from "@/lib/motion";
+import { listStagger, lineItem, easeOutExpo } from "@/lib/motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
