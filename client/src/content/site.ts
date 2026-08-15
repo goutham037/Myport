@@ -11,8 +11,8 @@ export const SITE = {
   email: "sharan1114411@gmail.com",
   phone: "+91 7013123744",
   location: "Remote",
-  linkedin: "https://www.linkedin.com/in/",
-  github: "https://github.com/",
+  linkedin: "https://www.linkedin.com/in/sharan-goutham",
+  github: "https://github.com/goutham037",
   resumePath: `${BASE}/resume.pdf`,
   /** Portrait in `client/public` — served as `/me.png` (or `/Myport/me.png` on GitHub Pages) */
   profilePhoto: `${BASE}/me.png`,

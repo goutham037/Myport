@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "Anonymous-friendly flows, smart session handling, and plans for interest-based matching and content moderation. Passion project for spontaneous networking without heavy sign-up friction.",
     tags: ["WebRTC", "Firebase", "JavaScript", "TypeScript", "Real-time", "Privacy"],
     links: [
-      { label: "GitHub", href: "#" },
+      { label: "GitHub", href: "https://github.com/goutham037/nexmeet2" },
       { label: "Live", href: "#" },
     ],
     featured: true,
@@ -52,7 +52,7 @@ export const projects: Project[] = [
       "Depth estimation and rendering pipeline packaged for classroom and demo use. Winner at institute & district levels; Top 5 at state; research published in IJARST.",
     tags: ["Python", "Android", "3D reconstruction", "EdTech", "Research"],
     links: [
-      { label: "View research", href: "#" },
+      { label: "View research", href: "https://ijarst.in/public/uploads/paper/622611742289897.pdf" },
       { label: "GitHub", href: "#" },
     ],
     featured: true,
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     tags: ["Full-stack", "Multilingual", "Maps API", "AI", "Flask", "HTML", "Python", "CSS"],
     links: [
       { label: "Explore", href: "#" },
-      { label: "GitHub", href: "#" },
+      { label: "GitHub", href: "https://github.com/goutham037/StaticMarketplace" },
     ],
     featured: true,
   },
@@ -100,7 +100,7 @@ export const projects: Project[] = [
       "Kotlin / Firebase / Android app with adaptive difficulty, admin tooling, and chatbot integration — prepared for market launch.",
     tags: ["Kotlin", "Firebase", "Android", "Educational", "Analytics", "AI"],
     links: [
-      { label: "Try demo", href: "#" },
+      { label: "Try demo", href: "https://drive.google.com/file/d/1zwvOJlAuujuDQRJq25FhygAIvcvYcc6N/view?usp=drivesdk" },
       { label: "GitHub", href: "#" },
     ],
     featured: true,
@@ -116,9 +116,22 @@ export const projects: Project[] = [
       "Web scraping and document indexing to structure messy institutional data; dashboards and automated login flows for students and faculty.",
     tags: ["Python", "JavaScript", "HTML", "RAG", "Scraping"],
     links: [
-      { label: "GitHub", href: "#" },
+      { label: "GitHub", href: "https://github.com/NakshathraBathula/BotMinds" },
       { label: "Live", href: "#" },
     ],
+    featured: true,
+  },
+  {
+    id: "college-ai-assistant",
+    title: "College AI Assistant & Automation Platform",
+    category: "ai",
+    year: "Live · 4+ institutions",
+    summary:
+      "AI-powered assistants for 4+ educational institutions — RAG, semantic search, and intelligent web crawling built into institution-specific knowledge bases.",
+    description:
+      "Automates retrieval of attendance, results, timetables, regulations, placements, admissions, faculty info, and student services through both web and WhatsApp interfaces.",
+    tags: ["Python", "FastAPI", "React", "Qdrant", "Gemini", "RAG", "WhatsApp"],
+    links: [{ label: "Live Demo", href: "https://g-ssc.netlify.app/" }],
     featured: true,
   },
   {
@@ -143,7 +156,7 @@ export const projects: Project[] = [
     description:
       "Tracks hashtags, keywords, and sentiment from live feeds for brands and researchers. Roadmap: dashboard and alert system.",
     tags: ["Python", "JavaScript", "HTML", "CSS", "Selenium", "Scraping"],
-    links: [{ label: "GitHub", href: "#" }],
+    links: [{ label: "GitHub", href: "https://github.com/goutham037/TwitterStreamMonitor" }],
     featured: false,
   },
   {
@@ -156,7 +169,7 @@ export const projects: Project[] = [
     description:
       "Built for clean UI/UX, accessibility, and performance — maintained as a living gallery of ongoing work.",
     tags: ["TypeScript", "React", "Tailwind", "Vite"],
-    links: [{ label: "Source", href: "#" }],
+    links: [{ label: "Source", href: "https://github.com/goutham037/Myport" }],
     featured: false,
   },
   {
