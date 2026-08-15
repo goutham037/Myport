@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo, listStagger, lineItem } from "@/lib/motion";
+import { BASE } from "@/lib/utils";
 
 const STACK = [
   { name: "FastMCP 1.18", note: "MCP server framework" },
@@ -119,7 +120,7 @@ export default function GsptMcpPage() {
         transition={{ duration: 0.55, delay: 0.1, ease: easeOutExpo }}
       >
         <img
-          src="/projects/gspt/demo.jpg"
+          src={`${BASE}/projects/gspt/demo.jpg`}
           alt="ChatGPT calling get_my_attendance — tool call and attendance table result"
           className="w-full rounded-2xl border border-slate-200 shadow-lg"
           loading="lazy"
@@ -209,7 +210,7 @@ export default function GsptMcpPage() {
 
           <div className="mt-10">
             <img
-            src="/projects/gspt/plugin-dialog.jpg"
+            src={`${BASE}/projects/gspt/plugin-dialog.jpg`}
             alt="ChatGPT Add plugin dialog with server URL https://gspt-4dis.onrender.com/mcp"
             className="w-full rounded-2xl border border-slate-200 shadow-lg"
             loading="lazy"
@@ -235,7 +236,7 @@ export default function GsptMcpPage() {
 
           <div className="mt-10">
             <img
-            src="/projects/gspt/attendance-output.jpg"
+            src={`${BASE}/projects/gspt/attendance-output.jpg`}
             alt="Full attendance report — table with colored rows and classes-needed breakdown"
             className="w-full rounded-2xl border border-slate-200 shadow-lg"
             loading="lazy"

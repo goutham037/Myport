@@ -4,18 +4,18 @@ import { Link, useLocation } from "wouter";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
+import { cn, BASE } from "@/lib/utils";
 import { SITE } from "@/content/site";
 import { easeOutExpo } from "@/lib/motion";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 
 const links = [
-  { href: "/#about", label: "About" },
-  { href: "/#systems", label: "Systems" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#expertise", label: "Expertise" },
-  { href: "/#contact", label: "Contact" },
+  { href: `${BASE}/#about`, label: "About" },
+  { href: `${BASE}/#systems`, label: "Systems" },
+  { href: `${BASE}/#projects`, label: "Projects" },
+  { href: `${BASE}/#experience`, label: "Experience" },
+  { href: `${BASE}/#expertise`, label: "Expertise" },
+  { href: `${BASE}/#contact`, label: "Contact" },
 ] as const;
 
 function scrollToHash(hash: string) {
@@ -38,7 +38,7 @@ function NavAnchor({
 }) {
   const [loc] = useLocation();
   const isSpec = href === "/spec";
-  const isHash = href.startsWith("/#");
+  const isHash = href.includes("#");
   const active = isSpec ? loc === "/spec" : false;
 
   const linkClass = cn(
@@ -56,7 +56,7 @@ function NavAnchor({
   }
 
   if (isHash) {
-    const hash = href.slice(1);
+    const hash = href.slice(href.indexOf("#"));
     return (
       <a
         href={href}

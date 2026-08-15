@@ -2,13 +2,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SITE } from "@/content/site";
 import { easeOutExpo } from "@/lib/motion";
+import { BASE } from "@/lib/utils";
 
 const footerLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#systems", label: "Systems" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#contact", label: "Contact" },
+  { href: `${BASE}/#about`, label: "About" },
+  { href: `${BASE}/#systems`, label: "Systems" },
+  { href: `${BASE}/#projects`, label: "Projects" },
+  { href: `${BASE}/#experience`, label: "Experience" },
+  { href: `${BASE}/#contact`, label: "Contact" },
 ];
 
 export function SiteFooter() {

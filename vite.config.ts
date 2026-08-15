@@ -24,6 +24,8 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+  /** GitHub Pages serves this repo from /Myport/, not the domain root (Vercel does). */
+  base: process.env.GITHUB_PAGES === "true" ? "/Myport/" : "/",
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,

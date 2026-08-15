@@ -1,4 +1,5 @@
 import { DESIGN_SPEC } from "./designSpec";
+import { BASE } from "@/lib/utils";
 
 export const SITE = {
   name: DESIGN_SPEC.brand.name,
@@ -12,7 +13,7 @@ export const SITE = {
   location: "Remote",
   linkedin: "https://www.linkedin.com/in/",
   github: "https://github.com/",
-  resumePath: "/resume.pdf",
-  /** Portrait in `client/public` — served as `/me.png` */
-  profilePhoto: "/me.png",
+  resumePath: `${BASE}/resume.pdf`,
+  /** Portrait in `client/public` — served as `/me.png` (or `/Myport/me.png` on GitHub Pages) */
+  profilePhoto: `${BASE}/me.png`,
 } as const;

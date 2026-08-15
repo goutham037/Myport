@@ -4,6 +4,7 @@ import { ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/content/site";
 import { easeOutExpo, staggerChildren } from "@/lib/motion";
+import { BASE } from "@/lib/utils";
 
 const HERO_BLUE = "#2563EB";
 const HERO_TEXT = "#0F172A";
@@ -207,7 +208,7 @@ export function HeroPremium() {
                 className="rounded-xl border-0 px-6 font-semibold text-white shadow-[0_10px_40px_rgba(37,99,235,0.12)] transition-[transform,box-shadow] duration-300 hover:shadow-[0_14px_48px_rgba(37,99,235,0.18)] sm:px-7"
                 style={{ backgroundColor: HERO_BLUE }}
               >
-                <a href="/#systems">Explore Systems</a>
+                <a href={`${BASE}/#systems`}>Explore Systems</a>
               </Button>
             </motion.div>
             <motion.div whileHover={reduce ? undefined : { y: -2 }} whileTap={reduce ? undefined : { scale: 0.98 }}>
@@ -238,7 +239,7 @@ export function HeroPremium() {
       />
 
       <motion.a
-        href="/#about"
+        href={`${BASE}/#about`}
         className="motion-reduce:hidden absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500 transition-colors hover:text-[#2563EB] sm:bottom-8 sm:text-[11px] sm:tracking-[0.22em]"
         initial={reduce ? false : { opacity: 0, y: 10 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
