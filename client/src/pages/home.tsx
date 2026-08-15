@@ -5,6 +5,8 @@ import { TrustMetricCards } from "@/components/blueprint/TrustMetricCards";
 import { AnimatedSection } from "@/components/blueprint/AnimatedSection";
 import { SystemCard } from "@/components/portfolio/SystemCard";
 import { systems } from "@/components/portfolio/systems";
+import { ProjectCard } from "@/components/site/ProjectCard";
+import { projects } from "@/content/projects";
 import { DESIGN_SPEC } from "@/content/designSpec";
 import { SOCOVIA_EXPERIENCE_BULLETS } from "@/content/sociovia";
 import { SITE } from "@/content/site";
@@ -53,6 +55,19 @@ export default function HomePage() {
         <div className="grid gap-6 md:grid-cols-2">
           {systems.map((sys, index) => (
             <SystemCard key={sys.name} {...sys} index={index} />
+          ))}
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection
+        id="projects"
+        eyebrow="Side projects"
+        title="What I build outside work"
+        subtitle="Personal experiments, tools, and case studies — shipped end-to-end."
+      >
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.filter((p) => p.featured).map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
       </AnimatedSection>

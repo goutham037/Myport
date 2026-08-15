@@ -12,12 +12,10 @@ import { ScrollProgress } from "@/components/site/ScrollProgress";
 const links = [
   { href: "/#about", label: "About" },
   { href: "/#systems", label: "Systems" },
+  { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#expertise", label: "Expertise" },
-  { href: "/#building", label: "Building" },
-  { href: "/#recognition", label: "Recognition" },
   { href: "/#contact", label: "Contact" },
-  { href: "/spec", label: "Spec" },
 ] as const;
 
 function scrollToHash(hash: string) {

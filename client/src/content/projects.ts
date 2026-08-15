@@ -159,6 +159,22 @@ export const projects: Project[] = [
     links: [{ label: "Source", href: "#" }],
     featured: false,
   },
+  {
+    id: "gspt-mcp",
+    title: "GSPT — GRIET Portal MCP Server",
+    category: "ai",
+    year: "Shipped · 2026",
+    summary:
+      "MCP server that exposes GRIET student portal data (attendance, profile, timetable, library) as AI-callable tools — integrated with ChatGPT via the plugin API.",
+    description:
+      "Playwright intercepts the AJAX request that auto-fires after login, returning the full student profile in a single 4–6s browser session. Deployed on Render with Chromium self-installing at startup. Zero-credential tools read roll number and password from server env vars so ChatGPT prompts never contain credentials — bypassing the safety-filter block that triggers when passwords appear inline.",
+    tags: ["Python", "FastMCP", "Playwright", "Streamable-HTTP", "ChatGPT Plugin", "Render", "AsyncIO", "BeautifulSoup4"],
+    links: [
+      { label: "GitHub", href: "https://github.com/goutham037/gspt" },
+      { label: "Live endpoint", href: "https://gspt-4dis.onrender.com/mcp" },
+    ],
+    featured: true,
+  },
 ];
 
 export function featuredProjects(limit = 4) {
