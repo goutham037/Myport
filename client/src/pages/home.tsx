@@ -11,7 +11,7 @@ import { DESIGN_SPEC } from "@/content/designSpec";
 import { SOCOVIA_EXPERIENCE_BULLETS } from "@/content/sociovia";
 import { SITE } from "@/content/site";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { listStagger, lineItem, easeOutExpo } from "@/lib/motion";
+import { listStagger, lineItem } from "@/lib/motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -124,40 +124,6 @@ export default function HomePage() {
             </motion.span>
           ))}
         </div>
-      </AnimatedSection>
-
-      <AnimatedSection id="building" eyebrow="Currently building" title="On the roadmap">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {DESIGN_SPEC.currentlyBuilding.map((item, i) => (
-            <motion.div
-              key={item}
-              initial={reduce ? false : { opacity: 0, y: 16, rotateX: -4 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: reduce ? 0 : 0.06 * i, duration: 0.5, ease: easeOutExpo }}
-              whileHover={reduce ? undefined : { y: -5, transition: { type: "spring", stiffness: 320, damping: 20 } }}
-              style={{ transformPerspective: 900 }}
-              className="rounded-2xl border border-slate-200 bg-slate-50/90 px-5 py-4 shadow-sm transition-shadow duration-300 hover:border-primary/25 hover:shadow-lg"
-            >
-              <p className="text-sm font-medium text-slate-900">{item}</p>
-            </motion.div>
-          ))}
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection id="recognition" eyebrow="Recognition" title="System Pillar" variant="muted" innerMax="3xl">
-        <motion.blockquote
-          initial={reduce ? false : { opacity: 0, scale: 0.97 }}
-          whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: easeOutExpo }}
-          className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-md transition-shadow duration-300 hover:shadow-lg"
-        >
-          <p className="font-sora text-lg font-medium italic leading-relaxed text-slate-800 md:text-xl">
-            &ldquo;{DESIGN_SPEC.recognition.quote}&rdquo;
-          </p>
-          <footer className="mt-4 font-mono text-xs text-slate-500">Internal recognition · Sociovia</footer>
-        </motion.blockquote>
       </AnimatedSection>
 
       <motion.section
