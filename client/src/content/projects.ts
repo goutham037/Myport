@@ -39,7 +39,7 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/goutham037/nexmeet2" },
       { label: "Live", href: "#" },
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: "smart-holovision",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       { label: "Explore", href: "#" },
       { label: "GitHub", href: "https://github.com/goutham037/StaticMarketplace" },
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: "sbtet-rag",
@@ -119,11 +119,11 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/NakshathraBathula/BotMinds" },
       { label: "Live", href: "#" },
     ],
-    featured: true,
+    featured: false,
   },
   {
-    id: "college-ai-assistant",
-    title: "College AI Assistant & Automation Platform",
+    id: "ask-griet",
+    title: "Ask GRIET",
     category: "ai",
     year: "Live · 4+ institutions",
     summary:

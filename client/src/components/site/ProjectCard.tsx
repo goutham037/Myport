@@ -27,11 +27,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 </span>
               ) : null}
             </div>
-          ) : (
-            <div className="flex h-28 items-center justify-center border-b border-border bg-gradient-to-br from-primary/20 via-background to-accent/15">
-              <span className="font-mono text-xs text-muted-foreground">{project.category}</span>
-            </div>
-          )}
+          ) : null}
           <CardContent className="flex flex-1 flex-col gap-3 p-5">
             <div>
               <p className="font-mono text-xs text-muted-foreground">
