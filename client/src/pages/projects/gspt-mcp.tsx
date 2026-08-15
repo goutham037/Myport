@@ -119,7 +119,7 @@ export default function GsptMcpPage() {
         transition={{ duration: 0.55, delay: 0.1, ease: easeOutExpo }}
       >
         <img
-          src="/projects/gspt/demo.png"
+          src="/projects/gspt/demo.jpg"
           alt="ChatGPT calling get_my_attendance — tool call and attendance table result"
           className="w-full rounded-2xl border border-slate-200 shadow-lg"
           loading="lazy"
@@ -209,7 +209,7 @@ export default function GsptMcpPage() {
 
           <div className="mt-10">
             <img
-            src="/projects/gspt/plugin-dialog.png"
+            src="/projects/gspt/plugin-dialog.jpg"
             alt="ChatGPT Add plugin dialog with server URL https://gspt-4dis.onrender.com/mcp"
             className="w-full rounded-2xl border border-slate-200 shadow-lg"
             loading="lazy"
@@ -235,7 +235,7 @@ export default function GsptMcpPage() {
 
           <div className="mt-10">
             <img
-            src="/projects/gspt/attendance-output.png"
+            src="/projects/gspt/attendance-output.jpg"
             alt="Full attendance report — table with colored rows and classes-needed breakdown"
             className="w-full rounded-2xl border border-slate-200 shadow-lg"
             loading="lazy"
