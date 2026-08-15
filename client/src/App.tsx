@@ -5,15 +5,13 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import HomePage from "@/pages/home";
-import SpecPage from "@/pages/spec-page";
-import CardsPage from "@/pages/cards-page";
+import GsptMcpPage from "@/pages/projects/gspt-mcp";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/spec" component={SpecPage} />
-      <Route path="/cards" component={CardsPage} />
+      <Route path="/projects/gspt-mcp" component={GsptMcpPage} />
       <Route path="/" component={HomePage} />
       <Route component={NotFound} />
     </Switch>

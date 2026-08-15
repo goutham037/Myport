@@ -170,8 +170,8 @@ export const projects: Project[] = [
       "Playwright intercepts the AJAX request that auto-fires after login, returning the full student profile in a single 4–6s browser session. Deployed on Render with Chromium self-installing at startup. Zero-credential tools read roll number and password from server env vars so ChatGPT prompts never contain credentials — bypassing the safety-filter block that triggers when passwords appear inline.",
     tags: ["Python", "FastMCP", "Playwright", "Streamable-HTTP", "ChatGPT Plugin", "Render", "AsyncIO", "BeautifulSoup4"],
     links: [
+      { label: "Case study", href: "/projects/gspt-mcp" },
       { label: "GitHub", href: "https://github.com/goutham037/gspt" },
-      { label: "Live endpoint", href: "https://gspt-4dis.onrender.com/mcp" },
     ],
     featured: true,
   },

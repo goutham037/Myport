@@ -116,9 +116,6 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="hidden text-slate-600 transition-colors hover:text-primary sm:inline-flex">
-            <Link href="/cards">Cards</Link>
-          </Button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="border-slate-200 lg:hidden" aria-label="Open menu">
@@ -133,9 +130,6 @@ export function SiteNav() {
                 {links.map(({ href, label }) => (
                   <NavAnchor key={href} href={href} label={label} onClick={() => setOpen(false)} />
                 ))}
-                <Link href="/cards" onClick={() => setOpen(false)}>
-                  <span className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50">Cards</span>
-                </Link>
               </div>
             </SheetContent>
           </Sheet>
