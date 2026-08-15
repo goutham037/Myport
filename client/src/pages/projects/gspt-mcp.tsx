@@ -167,12 +167,14 @@ export default function GsptMcpPage() {
           <p className="text-slate-600 mb-8 max-w-2xl">
             ChatGPT calls the MCP endpoint → uvicorn receives the request → FastMCP dispatches to the tool handler → Playwright opens a headless browser, logs in, and intercepts the AJAX response → parsed JSON flows back to ChatGPT.
           </p>
-          <img
-            src="/projects/gspt/architecture.png"
-            alt="Architecture diagram — ChatGPT to MCP server to Playwright to GRIET portal"
-            className="w-full rounded-2xl border border-slate-200 shadow-sm"
-            loading="lazy"
-          />
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <img
+              src="https://mermaid.ink/img/Zmxvd2NoYXJ0IExSCiAgICBBKFtDaGF0R1BUXSkgLS0+fHRvb2wgY2FsbCB2aWEgU3RyZWFtYWJsZS1IVFRQfCBCW01DUCBTZXJ2ZXJcbkZhc3RNQ1AgwrcgdXZpY29ybl0KICAgIEIgLS0+fGxhdW5jaGVzfCBDW1BsYXl3cmlnaHRcbkhlYWRsZXNzIENocm9taXVtXQogICAgQyAtLT58UE9TVCBjcmVkZW50aWFsc3wgRFtHUklFVCBQb3J0YWxcbndlYnByb3NpbmRpYS5jb21dCiAgICBEIC0tPnxBSkFYIHJlc3BvbnNlXG5TaG93U3R1ZGVudFByb2ZpbGVOZXd8IEMKICAgIEMgLS0+fEhUTUx8IEVbQmVhdXRpZnVsU291cDRcbnBhcnNlcl0KICAgIEUgLS0+fHN0cnVjdHVyZWQgZGljdHwgQgogICAgQiAtLT58SlNPTiByZXN1bHR8IEEKICAgIHN0eWxlIEEgZmlsbDojMTBhMzdmLGNvbG9yOiNmZmYsc3Ryb2tlOm5vbmUKICAgIHN0eWxlIEIgZmlsbDojNGY0NmU1LGNvbG9yOiNmZmYsc3Ryb2tlOm5vbmUKICAgIHN0eWxlIEMgZmlsbDojMGYxNzJhLGNvbG9yOiNmZmYsc3Ryb2tlOm5vbmUKICAgIHN0eWxlIEQgZmlsbDojNjQ3NDhiLGNvbG9yOiNmZmYsc3Ryb2tlOm5vbmUKICAgIHN0eWxlIEUgZmlsbDojMDM2OWExLGNvbG9yOiNmZmYsc3Ryb2tlOm5vbmU="
+              alt="Architecture diagram — ChatGPT to MCP server to Playwright to GRIET portal AJAX"
+              className="mx-auto max-w-full"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 

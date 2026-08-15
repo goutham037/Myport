@@ -4,11 +4,11 @@ import { SITE } from "@/content/site";
 import { easeOutExpo } from "@/lib/motion";
 
 const footerLinks = [
+  { href: "/#about", label: "About" },
   { href: "/#systems", label: "Systems" },
+  { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#contact", label: "Contact" },
-  { href: "/spec", label: "Design spec" },
-  { href: "/cards", label: "Cards" },
 ];
 
 export function SiteFooter() {
