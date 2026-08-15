@@ -30,7 +30,7 @@ const STEPS = [
   {
     n: "03",
     title: "Set your credentials on Render",
-    body: "In your Render service → Environment tab, add STUDENT_ROLL (your roll number) and STUDENT_PASSWORD. These are read by the no-arg tools so your credentials never appear in a chat prompt.",
+    body: "In your Render service → Environment tab, add STUDENT_ROLL (your roll number) and STUDENT_PASSWORD. This is required for the no-arg tools (get_my_attendance, get_my_profile, etc.) — they read credentials from the server environment so nothing sensitive ever appears in your chat prompt. Only use the credential-accepting tools (get_student_data, get_attendance) if you need to query a different roll number.",
   },
   {
     n: "04",
@@ -244,8 +244,70 @@ export default function GsptMcpPage() {
         </div>
       </section>
 
-      {/* tools exposed */}
+      {/* compatibility */}
       <section className="border-t border-slate-100 bg-slate-50/60 py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <p className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">Compatibility</p>
+          <h2 className="font-sora text-2xl font-semibold text-slate-900 mb-3">When it works — and when it doesn't</h2>
+          <p className="text-slate-600 mb-8 max-w-2xl">
+            There are two kinds of tools in this server. Which one you use determines whether ChatGPT will call it at all.
+          </p>
+
+          <div className="grid gap-6 sm:grid-cols-2 mb-10">
+            {/* no-cred */}
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                <p className="font-sora text-sm font-semibold text-emerald-900">No-credential tools — always work</p>
+              </div>
+              <div className="space-y-1 font-mono text-xs text-emerald-800 mb-4">
+                <p>get_my_attendance</p>
+                <p>get_my_profile</p>
+                <p>get_my_timetable</p>
+                <p>get_my_library</p>
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Take zero arguments. Credentials are stored in Render environment variables and never appear in the conversation. ChatGPT's content policy has nothing to flag — these call reliably across all models and plans.
+              </p>
+            </div>
+
+            {/* cred */}
+            <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                <p className="font-sora text-sm font-semibold text-amber-900">Credential-accepting tools — sometimes blocked</p>
+              </div>
+              <div className="space-y-1 font-mono text-xs text-amber-800 mb-4">
+                <p>get_student_data(roll_no, password)</p>
+                <p>get_attendance(roll_no, password)</p>
+                <p>get_library_books(roll_no, password)</p>
+                <p>get_timetable(roll_no, password)</p>
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Require passing a password as a tool argument. When the password appears in the prompt or tool call payload, some model configurations flag it. Use these only for querying other students' data.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="font-sora text-sm font-semibold text-slate-900 mb-4">Why the credential tools get blocked</p>
+            <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+              <p>
+                ChatGPT applies safety filters at multiple layers — model-level and policy-level. When a <span className="font-mono text-xs bg-slate-100 px-1 rounded">password</span> field appears in a tool's input schema or in the prompt text, certain model tiers treat it as a credential-handling request and refuse to call the tool, returning a message like <em>"I couldn't complete this request due to safety guidelines."</em>
+              </p>
+              <p>
+                This behaviour varies by model. <strong className="text-slate-800">GPT-4o and GPT-4o mini</strong> are the most permissive with plugin/MCP tool calls. <strong className="text-slate-800">o1, o3, and GPT-4.5</strong> apply stricter safety layers and are more likely to refuse. The free plan also has tighter content controls than Plus/Team.
+              </p>
+              <p>
+                The fix applied here: the <span className="font-mono text-xs bg-slate-100 px-1 rounded">get_my_*</span> tools expose no sensitive fields whatsoever. There is nothing for the safety layer to detect, so the call goes through every time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* tools exposed */}
+      <section className="py-16">
         <div className="mx-auto max-w-4xl px-4">
           <p className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">API</p>
           <h2 className="font-sora text-2xl font-semibold text-slate-900 mb-8">Tools exposed</h2>
