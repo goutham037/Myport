@@ -11,6 +11,7 @@ import { SOCOVIA_EXPERIENCE_BULLETS } from "@/content/sociovia";
 import { SITE } from "@/content/site";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { listStagger, lineItem, easeOutExpo } from "@/lib/motion";
+import { BASE } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -96,6 +97,25 @@ export default function HomePage() {
                 </motion.li>
               ))}
             </motion.ul>
+
+            <motion.div
+              className="mt-6 flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: easeOutExpo, delay: reduce ? 0 : 0.1 }}
+            >
+              <img
+                src={`${BASE}/system-pillar.jpg`}
+                alt="System Pillar trophy, awarded by the Sociovia team"
+                className="h-28 w-auto shrink-0 rounded-lg object-cover shadow-sm"
+                loading="lazy"
+              />
+              <div>
+                <p className="text-sm font-medium text-slate-900">&ldquo;System Pillar&rdquo; — team recognition</p>
+                <p className="mt-1 text-sm text-slate-600">Awarded by the Sociovia team at the AI Bharat Expo.</p>
+              </div>
+            </motion.div>
           </CardContent>
         </Card>
       </AnimatedSection>
