@@ -8,14 +8,17 @@ import { BASE } from "@/lib/utils";
 import HomePage from "@/pages/home";
 import GsptMcpPage from "@/pages/projects/gspt-mcp";
 import NotFound from "@/pages/not-found";
+import InstagramMcpPage from "@/pages/projects/insta-mcp";
 
 function Router() {
   return (
     <WouterRouter base={BASE}>
       <Switch>
         <Route path="/projects/gspt-mcp" component={GsptMcpPage} />
+        <Route path="/projects/insta-mcp" component={InstagramMcpPage} />
         <Route path="/" component={HomePage} />
         <Route component={NotFound} />
+        
       </Switch>
     </WouterRouter>
   );

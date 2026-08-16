@@ -193,6 +193,40 @@ export const projects: Project[] = [
     ],
     featured: true,
   },
+  {
+    id: "insta-mcp",
+  title: "TheML.Matrix — Instagram Publisher MCP Server",
+  category: "ai",
+    year: "Shipped · 2026",
+
+    summary:
+    "MCP server that enables AI assistants to create, process, and publish Instagram content for TheML.Matrix — including individual posts and multi-slide carousels.",
+
+    description:
+    "A production MCP server that connects AI-driven content workflows with Instagram publishing. It handles generated media, carousel slide processing, image uploads, and automated publishing to the @theml.matrix Instagram account. The system uses browser automation and request interception to reliably extract and process media from AI-generated content, while exposing publishing capabilities as AI-callable MCP tools.",
+
+    tags: [
+    "Python",
+    "FastMCP",
+    "Playwright",
+    "BeautifulSoup4",
+    "Instagram Graph API",
+    "MCP",
+    "AI Automation",
+    "Carousel Publishing",
+    "AsyncIO"
+    ],
+
+    image: "/projects/insta-mcp.jpg",
+
+    links: [
+    { label: "Case study", href: "/projects/insta-mcp" },
+    { label: "GitHub", href: "https://github.com/goutham037/instagram-automation" }
+    ],
+
+    featured: true,
+    },
+
 ];
 
 export function featuredProjects(limit = 4) {
