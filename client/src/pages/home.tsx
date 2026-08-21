@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "wouter";
 import { PageLayout } from "@/components/site/PageLayout";
 import { HeroPremium } from "@/components/blueprint/HeroPremium";
 import { AnimatedSection } from "@/components/blueprint/AnimatedSection";
@@ -15,10 +17,85 @@ import { BASE } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, Phone } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Download, Mail, Phone, ArrowRight, X } from "lucide-react";
 
 const META =
   "Sharan Goutham — Lead AI Developer @ Sociovia. AI-powered growth infrastructure: ads, CRM, conversational AI, backend automation.";
+
+function CaseStudyAnnouncement() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const dismissed = sessionStorage.getItem("gspt-case-study-seen");
+    if (!dismissed) {
+      const timer = setTimeout(() => setOpen(true), 2400);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleClose = () => {
+    setOpen(false);
+    sessionStorage.setItem("gspt-case-study-seen", "1");
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={(v) => { if (!v) handleClose(); }}>
+      <DialogContent className="max-w-md rounded-2xl border-slate-200 p-0 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 px-6 pt-8 pb-6">
+          <button
+            onClick={handleClose}
+            className="absolute right-4 top-4 rounded-full p-1 text-slate-400 hover:text-white transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <Badge className="mb-3 bg-primary/20 text-primary border-primary/30 font-mono text-xs">
+            Just Published
+          </Badge>
+          <DialogHeader>
+            <DialogTitle className="font-sora text-xl font-semibold text-white leading-tight">
+              An immersive engineering case study is live
+            </DialogTitle>
+          </DialogHeader>
+          <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            The full story of GSPT — a legacy student portal turned AI-native infrastructure.
+            Six versions, twelve months, five optimizations that cut response times by 75%,
+            and Grok delivering attendance intelligence at 8 AM and 9 PM daily.
+          </p>
+        </div>
+        <div className="px-6 py-5 bg-white">
+          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-4">
+            <span className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              Live on Render
+            </span>
+            <span>4-chapter walkthrough</span>
+            <span>Version-wise history</span>
+          </div>
+          <p className="text-sm text-slate-600 mb-5">
+            If you read one case study on this portfolio, make it this one. It reads like a
+            product tour — the evolution, the tradeoffs, the benchmarks, the lessons. Step
+            through it, then come back and tell me what you think.
+          </p>
+          <div className="flex gap-3">
+            <Link href="/projects/gspt-mcp" onClick={handleClose}>
+              <Button size="sm" className="rounded-xl shadow-sm shadow-primary/10">
+                Enter the case study
+                <ArrowRight className="ml-2 h-3.5 w-3.5" />
+              </Button>
+            </Link>
+            <Button size="sm" variant="ghost" className="rounded-xl text-slate-500" onClick={handleClose}>
+              Maybe later
+            </Button>
+          </div>
+          <p className="mt-4 text-xs text-slate-400 italic">
+            -- Sharan Goutham
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function HomePage() {
   usePageMeta("Sharan Goutham | Lead AI Developer @ Sociovia — AI Growth Infrastructure", META);
@@ -26,6 +103,7 @@ export default function HomePage() {
 
   return (
     <PageLayout>
+      <CaseStudyAnnouncement />
       <HeroPremium />
 
       <AnimatedSection id="about" eyebrow="About" title="Startup engineer, systems-first" innerMax="3xl">

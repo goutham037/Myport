@@ -182,10 +182,10 @@ export const projects: Project[] = [
     category: "ai",
     year: "Shipped · 2026",
     summary:
-      "MCP server that exposes GRIET student portal data (attendance, profile, timetable, library) as AI-callable tools — integrated with ChatGPT via the plugin API.",
+      "High-performance MCP server that turns a legacy student portal (no API) into AI-native infrastructure — 75% faster with persistent browser pool, AJAX interception, and Grok-automated daily attendance intelligence.",
     description:
-      "Playwright intercepts the AJAX request that auto-fires after login, returning the full student profile in a single 4–6s browser session. Deployed on Render with Chromium self-installing at startup. Zero-credential tools read roll number and password from server env vars so ChatGPT prompts never contain credentials — bypassing the safety-filter block that triggers when passwords appear inline.",
-    tags: ["Python", "FastMCP", "Playwright", "Streamable-HTTP", "ChatGPT Plugin", "Render", "AsyncIO", "BeautifulSoup4"],
+      "5 engineering optimizations (AJAX interception, persistent Chromium pool, selective caching, concurrency semaphore, projection engine) cut response times from ~15s to 4s. Attendance is never cached — always real-time. Grok delivers automated reports at 8 AM and 9 PM daily. Serves concurrent multi-student use on Render's free tier.",
+    tags: ["Python", "MCP SDK", "Playwright", "Grok Automation", "AsyncIO", "Concurrency", "Render"],
     image: "/projects/gspt-mcp.jpg",
     links: [
       { label: "Case study", href: "/projects/gspt-mcp" },
