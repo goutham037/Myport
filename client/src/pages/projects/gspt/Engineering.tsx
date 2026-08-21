@@ -3,7 +3,6 @@ import { Clock, Zap } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo, listStagger, lineItem } from "@/lib/motion";
 import { GsptShell, ChapterHeader } from "./GsptShell";
-import { SwipeDeck } from "./SwipeDeck";
 import { OPTIMIZATIONS, PERF_ROWS, GROK_REPORTS, type Optimization } from "./data";
 
 /** Shared card — used by both the desktop list and the mobile deck. */
@@ -65,22 +64,8 @@ export default function GsptEngineering() {
           intro="Each optimization targets one specific bottleneck. Together they take a 15-second scrape down to a 4-second intelligent response — concurrent, and never stale on the data that matters."
         />
 
-        {/* MOBILE: swipe deck */}
-        <section className="relative py-10 md:hidden">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
-              5 optimizations · auto-playing — swipe to explore
-            </p>
-            <SwipeDeck
-              slides={OPTIMIZATIONS.map((opt) => (
-                <OptimizationCard key={opt.n} opt={opt} fill />
-              ))}
-            />
-          </div>
-        </section>
-
-        {/* DESKTOP: vertical list */}
-        <section className="relative hidden py-14 md:block">
+        {/* optimizations — vertical list on every screen size */}
+        <section className="relative py-14">
           <div className="mx-auto max-w-4xl space-y-6 px-4">
             {OPTIMIZATIONS.map((opt) => (
               <motion.div

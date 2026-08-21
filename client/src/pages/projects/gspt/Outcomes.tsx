@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo, listStagger, lineItem } from "@/lib/motion";
 import { GsptShell, ChapterHeader } from "./GsptShell";
-import { SwipeDeck } from "./SwipeDeck";
 import { OUTCOMES, SKILLS, STACK, LINKS } from "./data";
 
 function LessonCard({ o, i, fill = false }: { o: (typeof OUTCOMES)[number]; i: number; fill?: boolean }) {
@@ -57,21 +56,9 @@ export default function GsptOutcomes() {
               </h2>
             </div>
 
-            {/* MOBILE: swipe deck */}
-            <div className="md:hidden">
-              <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
-                5 lessons · auto-playing — swipe to explore
-              </p>
-              <SwipeDeck
-                slides={OUTCOMES.map((o, i) => (
-                  <LessonCard key={o.title} o={o} i={i} fill />
-                ))}
-              />
-            </div>
-
-            {/* DESKTOP: stacked list */}
+            {/* stacked list — same on every screen size */}
             <motion.div
-              className="hidden space-y-4 px-4 md:block"
+              className="space-y-4 px-4"
               initial={reduce ? false : "hidden"}
               whileInView={reduce ? undefined : "show"}
               viewport={{ once: true }}

@@ -3,7 +3,6 @@ import { Lightbulb, AlertTriangle, GitCommit } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo } from "@/lib/motion";
 import { GsptShell, ChapterHeader } from "./GsptShell";
-import { SwipeDeck } from "./SwipeDeck";
 import { VERSIONS, type Version } from "./data";
 
 /** Shared card body — used by both the desktop timeline and the mobile deck. */
@@ -70,27 +69,12 @@ export default function GsptEvolution() {
           intro="This project was never designed — it was discovered, one failure at a time. Here is the honest arc from a hardcoded Flask script to concurrent AI infrastructure, and the specific lesson each version taught."
         />
 
-        {/* MOBILE: swipe-through story deck */}
-        <section className="relative py-10 md:hidden">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
-              6 versions · auto-playing — swipe to explore
-            </p>
-            <SwipeDeck
-              slides={VERSIONS.map((v) => (
-                <VersionCard key={v.tag} v={v} fill />
-              ))}
-              accents={VERSIONS.map((v) => v.accent)}
-            />
-          </div>
-        </section>
-
-        {/* DESKTOP: vertical timeline */}
-        <section className="relative hidden py-16 md:block">
+        {/* vertical timeline — single column on mobile, alternating on desktop */}
+        <section className="relative py-14 md:py-16">
           <div className="mx-auto max-w-4xl px-4">
             <div className="relative">
               <div
-                className="absolute left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-slate-300 via-slate-200 to-transparent"
+                className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-slate-300 via-slate-200 to-transparent md:left-1/2"
                 aria-hidden
               />
               <div className="space-y-8">
@@ -103,10 +87,10 @@ export default function GsptEvolution() {
                       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-60px" }}
                       transition={{ duration: 0.55, ease: easeOutExpo }}
-                      className={`relative ${left ? "pr-[calc(50%+2rem)]" : "pl-[calc(50%+2rem)]"}`}
+                      className={`relative pl-12 md:pl-0 ${left ? "md:pr-[calc(50%+2rem)]" : "md:pl-[calc(50%+2rem)]"}`}
                     >
                       <div
-                        className="absolute left-1/2 top-5 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border-2 bg-white shadow-sm"
+                        className="absolute left-2 top-5 flex h-6 w-6 items-center justify-center rounded-full border-2 bg-white shadow-sm md:left-1/2 md:-translate-x-1/2"
                         style={{ borderColor: v.accent }}
                         aria-hidden
                       >
