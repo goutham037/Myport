@@ -5,7 +5,29 @@ import { Button } from "@/components/ui/button";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo, listStagger, lineItem } from "@/lib/motion";
 import { GsptShell, ChapterHeader } from "./GsptShell";
+import { SwipeDeck } from "./SwipeDeck";
 import { OUTCOMES, SKILLS, STACK, LINKS } from "./data";
+
+function LessonCard({ o, i, fill = false }: { o: (typeof OUTCOMES)[number]; i: number; fill?: boolean }) {
+  return (
+    <div
+      className={`flex gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${
+        fill ? "h-full" : ""
+      }`}
+    >
+      <span className="font-sora text-3xl font-bold text-primary/20">{`0${i + 1}`}</span>
+      <div>
+        <div className="mb-1 flex flex-wrap items-center gap-2">
+          <h3 className="font-sora text-base font-semibold text-slate-900">{o.title}</h3>
+          <span className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[10px] text-slate-500">
+            {o.from}
+          </span>
+        </div>
+        <p className="text-sm leading-relaxed text-slate-600">{o.body}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function GsptOutcomes() {
   usePageMeta(
@@ -25,36 +47,37 @@ export default function GsptOutcomes() {
 
         {/* learned outcomes */}
         <section className="relative py-14">
-          <div className="mx-auto max-w-4xl px-4">
-            <p className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-primary/70">
-              Learned outcomes
-            </p>
-            <h2 className="mb-8 font-sora text-2xl font-semibold text-slate-900">
-              Five lessons, one per turning point
-            </h2>
+          <div className="mx-auto max-w-4xl">
+            <div className="px-4">
+              <p className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-primary/70">
+                Learned outcomes
+              </p>
+              <h2 className="mb-8 font-sora text-2xl font-semibold text-slate-900">
+                Five lessons, one per turning point
+              </h2>
+            </div>
+
+            {/* MOBILE: swipe deck */}
+            <div className="md:hidden">
+              <SwipeDeck
+                slides={OUTCOMES.map((o, i) => (
+                  <LessonCard key={o.title} o={o} i={i} fill />
+                ))}
+                label="swipe lessons"
+              />
+            </div>
+
+            {/* DESKTOP: stacked list */}
             <motion.div
-              className="space-y-4"
+              className="hidden space-y-4 px-4 md:block"
               initial={reduce ? false : "hidden"}
               whileInView={reduce ? undefined : "show"}
               viewport={{ once: true }}
               variants={reduce ? undefined : listStagger}
             >
               {OUTCOMES.map((o, i) => (
-                <motion.div
-                  key={o.title}
-                  variants={reduce ? undefined : lineItem}
-                  className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-                >
-                  <span className="font-sora text-3xl font-bold text-primary/20">{`0${i + 1}`}</span>
-                  <div>
-                    <div className="mb-1 flex flex-wrap items-center gap-2">
-                      <h3 className="font-sora text-base font-semibold text-slate-900">{o.title}</h3>
-                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[10px] text-slate-500">
-                        {o.from}
-                      </span>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate-600">{o.body}</p>
-                  </div>
+                <motion.div key={o.title} variants={reduce ? undefined : lineItem}>
+                  <LessonCard o={o} i={i} />
                 </motion.div>
               ))}
             </motion.div>

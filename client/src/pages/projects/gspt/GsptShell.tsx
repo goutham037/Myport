@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Github } from "lucide-react";
@@ -36,14 +36,44 @@ function Ambient() {
 
 /** Sticky chapter progress rail — the spine of the multi-page experience. */
 function ChapterRail({ current }: { current: number }) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef<HTMLSpanElement>(null);
+
+  // Mobile: keep the current chapter centered in the horizontally-scrolling rail.
+  // Retries briefly because the exact overflow only settles once web fonts load.
+  useEffect(() => {
+    const center = () => {
+      const s = scrollerRef.current;
+      const c = activeRef.current;
+      if (!s || !c) return;
+      const target = c.offsetLeft - (s.clientWidth - c.offsetWidth) / 2;
+      const clamped = Math.max(0, Math.min(target, s.scrollWidth - s.clientWidth));
+      s.scrollLeft = clamped; // scroll-independent, so instant + idempotent
+    };
+
+    center();
+    let tries = 0;
+    const id = setInterval(() => {
+      center();
+      if (++tries >= 6) clearInterval(id);
+    }, 120);
+    return () => clearInterval(id);
+  }, [current]);
+
   return (
-    <div className="sticky top-16 z-30 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex items-center gap-1 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="sticky top-16 z-30 border-b border-slate-200/70 bg-white/85 backdrop-blur-md">
+      <div className="relative mx-auto max-w-6xl">
+        {/* edge fades hint that the rail scrolls */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-white to-transparent sm:hidden" aria-hidden />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-white to-transparent sm:hidden" aria-hidden />
+        <div
+          ref={scrollerRef}
+          className="flex items-center gap-1 overflow-x-auto px-4 py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           <Link href="/#projects">
-            <span className="mr-2 inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900">
+            <span className="mr-1 inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900">
               <ArrowLeft className="h-3.5 w-3.5" />
-              Projects
+              <span className="hidden sm:inline">Projects</span>
             </span>
           </Link>
           <div className="h-4 w-px shrink-0 bg-slate-200" />
@@ -53,7 +83,8 @@ function ChapterRail({ current }: { current: number }) {
             return (
               <Link key={c.slug} href={c.path}>
                 <span
-                  className={`group relative inline-flex shrink-0 items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                  ref={active ? activeRef : undefined}
+                  className={`group relative inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors sm:px-3 ${
                     active
                       ? "bg-primary/10 text-primary"
                       : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"

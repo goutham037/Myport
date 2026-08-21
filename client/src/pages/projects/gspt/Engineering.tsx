@@ -3,7 +3,51 @@ import { Clock, Zap } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { easeOutExpo, listStagger, lineItem } from "@/lib/motion";
 import { GsptShell, ChapterHeader } from "./GsptShell";
-import { OPTIMIZATIONS, PERF_ROWS, GROK_REPORTS } from "./data";
+import { SwipeDeck } from "./SwipeDeck";
+import { OPTIMIZATIONS, PERF_ROWS, GROK_REPORTS, type Optimization } from "./data";
+
+/** Shared card — used by both the desktop list and the mobile deck. */
+function OptimizationCard({ opt, fill = false }: { opt: Optimization; fill?: boolean }) {
+  return (
+    <div
+      className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
+        fill ? "flex h-full flex-col" : ""
+      }`}
+    >
+      <div className="p-6">
+        <div className="mb-4 flex items-center gap-3">
+          <span className="font-mono text-2xl font-bold text-primary/25">{opt.n}</span>
+          <h3 className="font-sora text-lg font-semibold text-slate-900">{opt.title}</h3>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-red-400">
+              Problem
+            </p>
+            <p className="text-sm leading-relaxed text-slate-600">{opt.problem}</p>
+          </div>
+          <div>
+            <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-500">
+              Solution
+            </p>
+            <p className="text-sm leading-relaxed text-slate-600">{opt.solution}</p>
+          </div>
+        </div>
+        <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1">
+          <Zap className="h-3 w-3 text-primary" />
+          <span className="font-mono text-xs font-medium text-primary">{opt.impact}</span>
+        </div>
+      </div>
+      {opt.code && (
+        <div className={`overflow-x-auto border-t border-slate-800 bg-slate-900 p-5 ${fill ? "mt-auto" : ""}`}>
+          <pre className="font-mono text-xs leading-relaxed text-slate-300">
+            <code>{opt.code}</code>
+          </pre>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function GsptEngineering() {
   usePageMeta(
@@ -21,8 +65,23 @@ export default function GsptEngineering() {
           intro="Each optimization targets one specific bottleneck. Together they take a 15-second scrape down to a 4-second intelligent response — concurrent, and never stale on the data that matters."
         />
 
-        {/* optimizations */}
-        <section className="relative py-14">
+        {/* MOBILE: swipe deck */}
+        <section className="relative py-10 md:hidden">
+          <div className="mx-auto max-w-4xl">
+            <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
+              Swipe the optimizations →
+            </p>
+            <SwipeDeck
+              slides={OPTIMIZATIONS.map((opt) => (
+                <OptimizationCard key={opt.n} opt={opt} fill />
+              ))}
+              label="swipe"
+            />
+          </div>
+        </section>
+
+        {/* DESKTOP: vertical list */}
+        <section className="relative hidden py-14 md:block">
           <div className="mx-auto max-w-4xl space-y-6 px-4">
             {OPTIMIZATIONS.map((opt) => (
               <motion.div
@@ -31,39 +90,8 @@ export default function GsptEngineering() {
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, ease: easeOutExpo }}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
               >
-                <div className="p-6">
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="font-mono text-2xl font-bold text-primary/25">{opt.n}</span>
-                    <h3 className="font-sora text-lg font-semibold text-slate-900">{opt.title}</h3>
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-red-400">
-                        Problem
-                      </p>
-                      <p className="text-sm leading-relaxed text-slate-600">{opt.problem}</p>
-                    </div>
-                    <div>
-                      <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-500">
-                        Solution
-                      </p>
-                      <p className="text-sm leading-relaxed text-slate-600">{opt.solution}</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1">
-                    <Zap className="h-3 w-3 text-primary" />
-                    <span className="font-mono text-xs font-medium text-primary">{opt.impact}</span>
-                  </div>
-                </div>
-                {opt.code && (
-                  <div className="overflow-x-auto border-t border-slate-800 bg-slate-900 p-5">
-                    <pre className="font-mono text-xs leading-relaxed text-slate-300">
-                      <code>{opt.code}</code>
-                    </pre>
-                  </div>
-                )}
+                <OptimizationCard opt={opt} />
               </motion.div>
             ))}
           </div>
