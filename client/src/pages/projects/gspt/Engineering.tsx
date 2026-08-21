@@ -69,13 +69,12 @@ export default function GsptEngineering() {
         <section className="relative py-10 md:hidden">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
-              Swipe the optimizations →
+              5 optimizations · auto-playing — swipe to explore
             </p>
             <SwipeDeck
               slides={OPTIMIZATIONS.map((opt) => (
                 <OptimizationCard key={opt.n} opt={opt} fill />
               ))}
-              label="swipe"
             />
           </div>
         </section>

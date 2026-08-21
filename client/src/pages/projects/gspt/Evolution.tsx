@@ -74,14 +74,13 @@ export default function GsptEvolution() {
         <section className="relative py-10 md:hidden">
           <div className="mx-auto max-w-4xl">
             <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
-              Swipe the timeline →
+              6 versions · auto-playing — swipe to explore
             </p>
             <SwipeDeck
               slides={VERSIONS.map((v) => (
                 <VersionCard key={v.tag} v={v} fill />
               ))}
               accents={VERSIONS.map((v) => v.accent)}
-              label="swipe versions"
             />
           </div>
         </section>

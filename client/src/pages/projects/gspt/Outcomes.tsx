@@ -59,11 +59,13 @@ export default function GsptOutcomes() {
 
             {/* MOBILE: swipe deck */}
             <div className="md:hidden">
+              <p className="mb-4 px-4 font-mono text-xs font-medium uppercase tracking-widest text-slate-400">
+                5 lessons · auto-playing — swipe to explore
+              </p>
               <SwipeDeck
                 slides={OUTCOMES.map((o, i) => (
                   <LessonCard key={o.title} o={o} i={i} fill />
                 ))}
-                label="swipe lessons"
               />
             </div>
 
