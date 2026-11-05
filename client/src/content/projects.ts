@@ -89,7 +89,7 @@ export const projects: Project[] = [
       { label: "View system", href: "#" },
       { label: "GitHub", href: "#" },
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: "quizmaker",
@@ -106,7 +106,7 @@ export const projects: Project[] = [
       { label: "Try demo", href: "https://drive.google.com/file/d/1zwvOJlAuujuDQRJq25FhygAIvcvYcc6N/view?usp=drivesdk" },
       { label: "GitHub", href: "#" },
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: "kmit-rag",
@@ -136,6 +136,58 @@ export const projects: Project[] = [
     tags: ["Python", "FastAPI", "React", "Qdrant", "Gemini", "RAG", "WhatsApp"],
     image: "/projects/ask-griet.jpg",
     links: [{ label: "Live Demo", href: "https://g-ssc.netlify.app/" }],
+    featured: true,
+  },
+  {
+    id: "spectrum-erp",
+    title: "Spectrum ERP — Cost & Pricing Automation",
+    category: "data",
+    year: "Shipped · 2026",
+    summary:
+      "ERP automation that prices a product catalog straight from raw-material rates — loaded 519 rates and auto-priced 968 products with a BOM-based costing model.",
+    description:
+      "Automated BOM-based raw-material and packaging cost calculations and wired them into product pricing (raw material + packaging + markup). Built as part of Sociovia's Spectrum pipeline.",
+    tags: ["JavaScript", "Firebase", "ERP", "Automation", "Pricing"],
+    links: [{ label: "Case study", href: "#" }],
+    featured: true,
+  },
+  {
+    id: "recall",
+    title: "recall — Memory-First Marketing Agent",
+    category: "ai",
+    year: "MemHack '26",
+    summary:
+      "An AI marketing agent that remembers every post, result, and competitor move — built in a weekend at MemHack '26 with Groq and the Meta Graph API.",
+    description:
+      "A chief-marketer agent with a persistent memory layer, Groq inference, and live brand context from the Meta Graph API. Shipped end to end during the hackathon.",
+    tags: ["TypeScript", "Groq", "Meta Graph API", "AI Agent", "Memory"],
+    links: [{ label: "GitHub", href: "https://github.com/goutham037/recall" }],
+    featured: true,
+  },
+  {
+    id: "lexamplify",
+    title: "LexAmplify — Legal-AI Platform Redesign",
+    category: "fullstack",
+    year: "Full-stack",
+    summary:
+      "Rebuilt a legal-AI product's front-end across 8 core screens with a new design system — ivory, forest green, and gold.",
+    description:
+      "A consistent UI design system applied across eight screens, lifting the overall enterprise product experience. Front-end built in TypeScript and React.",
+    tags: ["TypeScript", "React", "Design System", "UI"],
+    links: [{ label: "GitHub", href: "https://github.com/goutham037/lexamplify-template" }],
+    featured: true,
+  },
+  {
+    id: "face-attend",
+    title: "Face-Recognition Attendance (CNN)",
+    category: "ai",
+    year: "Shipped",
+    summary:
+      "Face-recognition attendance with OpenCV and a TensorFlow/Keras CNN, served through a browser UI on AWS EC2.",
+    description:
+      "Classic computer vision and deep learning: OpenCV Haar Cascade for detection and a TensorFlow/Keras CNN for recognition, deployed with a browser front-end on AWS EC2.",
+    tags: ["Python", "OpenCV", "TensorFlow/Keras", "CNN", "AWS EC2"],
+    links: [{ label: "GitHub", href: "https://github.com/goutham037/face-attend" }],
     featured: true,
   },
   {

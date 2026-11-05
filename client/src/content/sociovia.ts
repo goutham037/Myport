@@ -1,8 +1,8 @@
 /** Sociovia role — bullets for Experience section (aligned to design blueprint). */
 export const SOCOVIA_EXPERIENCE_BULLETS = [
-  "Built the Meta ads analytics: data ingestion, creative-fatigue signals, retargeting hooks, and reporting, so spend decisions run on current numbers instead of day-old data.",
-  "Designed the CRM and follow-up flows that put sales and growth on one pipeline, with fewer leads dropped between channels.",
-  "Strengthened the backend services and CI/CD so deploys stayed reliable as the product grew.",
-  "Built conversational assistants with grounded answers and a clear handoff to a human, not open-ended chatbots.",
-  "One of the main contributors to the platform architecture: the service boundaries and glue that keep production stable.",
+  "Joined as the first technical hire and built roughly 70% of the CRM and the Smart Funnel Builder, the core of how Sociovia tracks leads and customers.",
+  "Wired up the Meta Marketing API and Conversion API (CAPI), plus ad and messaging automation across WhatsApp, Google, LinkedIn, X, and Reddit.",
+  "Built AI copilots and agentic workflows for marketing operations, and RAG-based chat that answers from real data instead of guessing.",
+  "Owned backend services, API integrations, and production deploys, serving 500+ users.",
+  "Worked directly with the founders, and helped grow the platform from marketing automation into broader autonomous growth infrastructure.",
 ] as const;
