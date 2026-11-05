@@ -29,7 +29,7 @@ export function SiteFooter() {
           <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-primary/90">{SITE.lockup}</p>
           <p className="mt-2 text-sm text-slate-600">{SITE.headline}</p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-600">
-            Building production-grade AI growth infrastructure — calm, technical, product-first.
+            I build AI and growth systems at Sociovia, and ship side projects across AI, web, and mobile.
           </p>
           <div className="mt-4 flex flex-wrap gap-4 text-sm">
             <a
@@ -76,7 +76,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <p className="mx-auto mt-10 max-w-6xl text-center text-xs text-slate-500 md:text-left">
-        © {new Date().getFullYear()} {SITE.fullName}. Crafted for clarity and signal.
+        © {new Date().getFullYear()} {SITE.fullName}. Built and maintained by me.
       </p>
     </motion.footer>
   );

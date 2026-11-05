@@ -1,8 +1,8 @@
 /** Sociovia role — bullets for Experience section (aligned to design blueprint). */
 export const SOCOVIA_EXPERIENCE_BULLETS = [
-  "Owned Meta ads intelligence: ingestion, fatigue signals, retargeting hooks, and reporting so spend decisions lag reality by minutes, not days.",
-  "Designed CRM and nurture flows that align sales and growth on one pipeline truth — fewer dropped handoffs between channels.",
-  "Hardened backend services and CI/CD so modular deploys stay predictable as the MVP surface area grew.",
-  "Shipping conversational assistants with clear escalation, grounding, and review paths — not open-ended chat toys.",
-  "Core contributor to platform architecture: boundaries, contracts, and the boring glue that keeps prod steady.",
+  "Built the Meta ads analytics: data ingestion, creative-fatigue signals, retargeting hooks, and reporting, so spend decisions run on current numbers instead of day-old data.",
+  "Designed the CRM and follow-up flows that put sales and growth on one pipeline, with fewer leads dropped between channels.",
+  "Strengthened the backend services and CI/CD so deploys stayed reliable as the product grew.",
+  "Built conversational assistants with grounded answers and a clear handoff to a human, not open-ended chatbots.",
+  "One of the main contributors to the platform architecture: the service boundaries and glue that keep production stable.",
 ] as const;

@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   AlertCircle,
-  ArrowLeft,
   Home,
   Search,
   Terminal,
@@ -143,18 +142,6 @@ export default function NotFound() {
                 <Link href="/#projects">
                   <Search className="mr-2 h-4 w-4" />
                   Explore projects
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                variant="ghost"
-                className="rounded-xl px-6"
-              >
-                <Link href="/spec">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Design spec
                 </Link>
               </Button>
             </div>

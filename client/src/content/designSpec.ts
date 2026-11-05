@@ -11,11 +11,11 @@ export const DESIGN_SPEC = {
     tagline:
       "I ship production systems where ads data, CRM state, assistants, and backend services meet — so growth teams move faster with fewer fragile handoffs.",
     personality: [
-      "Operator-minded",
+      "Practical",
       "Systems-first",
-      "Quietly premium",
-      "Evidence in the build",
-      "Founder-speed without chaos",
+      "Detail-oriented",
+      "Ships and iterates",
+      "Fast without the chaos",
     ],
   },
   colors: {
@@ -44,9 +44,9 @@ export const DESIGN_SPEC = {
   ],
   about: {
     paragraphs: [
-      "I treat growth engineering like reliability engineering: clear contracts between data, automation, and humans — so the system keeps working when traffic and spend spike.",
-      "Most of my time goes to ads intelligence, CRM and nurture flows, conversational surfaces, and the Python/Node services and pipelines behind them.",
-      "At Sociovia I own slices of the stack end-to-end: from MVP spikes to the guardrails that keep production calm.",
+      "I build systems that keep working after launch day. That comes down to clear boundaries between the data, the automation, and the people using it, so nothing falls over when traffic or ad spend spikes.",
+      "Most of my time goes to ad analytics, CRM and follow-up flows, chat assistants, and the Python and Node services behind them.",
+      "At Sociovia I take features from a rough first cut to something stable in production, and I stay on them the whole way.",
     ],
   },
   coreExpertise: [
@@ -72,15 +72,15 @@ export const DESIGN_SPEC = {
       title: "Reliability for growth teams",
     },
     systems: {
-      eyebrow: "Shipped surface area",
-      title: "Systems you can trace",
+      eyebrow: "At Sociovia",
+      title: "Systems built",
       subtitle:
-        "Not a trophy wall — each block is a real lane of ownership: scope, how it hits the business, and what actually runs in prod.",
+        "The systems I work on at Sociovia. Each one covers what it does, why it matters to the business, and what it's built with.",
     },
     experience: {
       eyebrow: "Now",
       title: "Sociovia — lead builder",
-      cardSubtitle: "End-to-end delivery on the growth stack: experiments, automation, and the services underneath.",
+      cardSubtitle: "Working across the growth stack: experiments, automation, and the services underneath.",
     },
     expertise: {
       eyebrow: "Ownership map",
@@ -94,8 +94,8 @@ export const DESIGN_SPEC = {
         "If you’re hiring, collaborating, or comparing notes — send role, stack, and timeline. I read everything.",
     },
     footerPitch:
-      "Production-grade growth systems — opinionated interfaces, boring deploys, and traces you can trust.",
-    footerLegal: "Built for signal, not noise.",
+      "I build AI and growth systems at Sociovia, and ship side projects across AI, web, and mobile.",
+    footerLegal: "Built and maintained by me.",
     heroCtas: {
       systems: "Explore systems",
       resume: "Résumé (email)",

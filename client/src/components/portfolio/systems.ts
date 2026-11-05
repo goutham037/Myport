@@ -4,10 +4,10 @@ export const systems: Omit<SystemCardProps, "index">[] = [
   {
     status: "live",
     name: "Meta advertisement optimization engine",
-    impactLine: "Campaign intelligence that keeps spend efficient as scale grows.",
+    impactLine: "Keeps Meta ad spend efficient as campaigns scale.",
     description:
-      "End-to-end signals for Meta campaigns: performance ingestion, fatigue curves, and operator-ready views so growth teams act before waste compounds.",
-    businessOutcome: "Tighter feedback loops between spend, creative rotation, and revenue outcomes.",
+      "Pulls Meta campaign performance, flags creative fatigue, and gives the growth team clear views so they can cut waste before it adds up.",
+    businessOutcome: "Faster feedback between spend, creative changes, and results.",
     features: [
       "Underperformer detection",
       "Fatigue analysis",
@@ -19,20 +19,20 @@ export const systems: Omit<SystemCardProps, "index">[] = [
   {
     status: "live",
     name: "CRM & lead nurturing infrastructure",
-    impactLine: "Pipelines that move prospects from first touch to conversion without manual glue.",
+    impactLine: "Moves leads from first contact to conversion without manual busywork.",
     description:
-      "Structured stages, automation hooks, and integrations so sales and growth share one operational truth.",
-    businessOutcome: "Higher conversion discipline and less revenue leakage between channels.",
+      "Defined pipeline stages, automation hooks, and integrations so sales and growth work from the same data.",
+    businessOutcome: "Better conversion follow-through and fewer leads slipping through the cracks.",
     features: ["Lead pipelines", "Conversion workflows", "Customer lifecycle automation"],
     stack: ["REST APIs", "Webhooks", "Workflow engines", "FastAPI"],
   },
   {
     status: "building",
     name: "Conversational AI sales assistant",
-    impactLine: "Business-aware Instagram assistant that mirrors strong rep judgment.",
+    impactLine: "An Instagram assistant that answers inbound leads the way a good rep would.",
     description:
-      "Grounded responses, safe escalation paths, and sales-aware prompts so inbound social volume converts without burning team time.",
-    businessOutcome: "Faster qualified replies and consistent brand voice at scale.",
+      "Grounded replies, a clean handoff to a human when it's needed, and prompts tuned for sales, so social DMs convert without eating the team's time.",
+    businessOutcome: "Quicker replies to qualified leads and a consistent brand voice.",
     features: [
       "Business-aware Instagram AI chatbot",
       "AI-assisted customer interaction",
@@ -43,20 +43,20 @@ export const systems: Omit<SystemCardProps, "index">[] = [
   {
     status: "live",
     name: "Social automation system",
-    impactLine: "Repeatable publishing and monitoring across social surfaces.",
+    impactLine: "Scheduling and monitoring across social accounts, handled automatically.",
     description:
-      "Scheduling, content automation, and integration pipelines so campaigns stay coordinated with the rest of growth infrastructure.",
-    businessOutcome: "Less manual coordination; more reliable execution cadence.",
+      "Scheduling, content automation, and integrations that keep campaigns in step with the rest of the stack.",
+    businessOutcome: "Less manual coordination and a steadier posting cadence.",
     features: ["Scheduling workflows", "Content automation", "Social integration pipelines"],
     stack: ["Node.js / Python jobs", "Queue workers", "Platform APIs"],
   },
   {
     status: "live",
     name: "CI/CD & infrastructure layer",
-    impactLine: "Modular services and pipelines that make shipping boring — in a good way.",
+    impactLine: "Deploys that are predictable and boring, which is the whole point.",
     description:
-      "Deployment automation, environment discipline, and service boundaries that keep production changes predictable.",
-    businessOutcome: "Faster safe releases and lower incident surface for revenue-critical paths.",
+      "Deployment automation, clean environments, and clear service boundaries so pushing to production doesn't break things.",
+    businessOutcome: "Faster, safer releases on the paths that touch revenue.",
     features: ["Deployment pipelines", "Modular architecture", "Scalable backend services"],
     stack: ["Docker", "GitHub Actions", "Cloud deploys", "Observability"],
   },

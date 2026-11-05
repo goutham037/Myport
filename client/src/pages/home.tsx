@@ -54,13 +54,13 @@ function CaseStudyAnnouncement() {
           </Badge>
           <DialogHeader>
             <DialogTitle className="font-sora text-xl font-semibold text-white leading-tight">
-              An immersive engineering case study is live
+              New case study: the GSPT portal server
             </DialogTitle>
           </DialogHeader>
           <p className="mt-3 text-sm leading-relaxed text-slate-300">
-            The full story of GSPT — a legacy student portal turned AI-native infrastructure.
-            Six versions, twelve months, five optimizations that cut response times by 75%,
-            and Grok delivering attendance intelligence at 8 AM and 9 PM daily.
+            How I turned a legacy college portal with no API into an AI-callable server.
+            Six versions over a year, five optimizations that cut response time by 75%,
+            and a daily attendance report at 8 AM and 9 PM.
           </p>
         </div>
         <div className="px-6 py-5 bg-white">
@@ -73,9 +73,8 @@ function CaseStudyAnnouncement() {
             <span>Version-wise history</span>
           </div>
           <p className="text-sm text-slate-600 mb-5">
-            If you read one case study on this portfolio, make it this one. It reads like a
-            product tour — the evolution, the tradeoffs, the benchmarks, the lessons. Step
-            through it, then come back and tell me what you think.
+            It walks through the whole build: how it evolved, the tradeoffs, the benchmarks,
+            and what I learned along the way. Have a look.
           </p>
           <div className="flex gap-3">
             <Link href="/projects/gspt-mcp" onClick={handleClose}>
@@ -89,7 +88,7 @@ function CaseStudyAnnouncement() {
             </Button>
           </div>
           <p className="mt-4 text-xs text-slate-400 italic">
-            -- Sharan Goutham
+            — Sharan
           </p>
         </div>
       </DialogContent>
@@ -106,7 +105,7 @@ export default function HomePage() {
       <CaseStudyAnnouncement />
       <HeroPremium />
 
-      <AnimatedSection id="about" eyebrow="About" title="Startup engineer, systems-first" innerMax="3xl">
+      <AnimatedSection id="about" eyebrow="About" title="How I work" innerMax="3xl">
         <motion.div
           className="space-y-5 text-lg leading-relaxed text-slate-600"
           initial={reduce ? false : "hidden"}
@@ -124,10 +123,10 @@ export default function HomePage() {
 
       <AnimatedSection
         id="systems"
-        eyebrow="Production surface"
+        eyebrow="At Sociovia"
         title="Systems built"
         variant="muted"
-        subtitle="Production-grade growth systems — not a project gallery. Each block maps to real scope, impact, and stack."
+        subtitle="The systems I work on at Sociovia, not a list of side projects. Each one covers what it does, why it matters to the business, and what it's built with."
       >
         <div className="grid gap-6 md:grid-cols-2">
           {systems.map((sys, index) => (
@@ -140,7 +139,7 @@ export default function HomePage() {
         id="projects"
         eyebrow="Side projects"
         title="What I build outside work"
-        subtitle="Personal experiments, tools, and case studies — shipped end-to-end."
+        subtitle="Things I've built on my own time, from quick experiments to projects I shipped and shared."
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.filter((p) => p.featured).map((project, i) => (
@@ -158,7 +157,7 @@ export default function HomePage() {
                 {SITE.location}
               </Badge>
             </div>
-            <p className="text-sm text-slate-600">Core technical builder — production systems & MVP architecture.</p>
+            <p className="text-sm text-slate-600">Core technical builder, working across production systems and early-stage MVP architecture.</p>
           </CardHeader>
           <CardContent className="pt-6">
             <motion.ul
@@ -203,7 +202,7 @@ export default function HomePage() {
         eyebrow="Core expertise"
         title="What I ship"
         variant="muted"
-        subtitle="Premium skill chips — the surface area I own end-to-end."
+        subtitle="The tools and areas I work with most."
       >
         <div className="flex flex-wrap gap-2">
           {DESIGN_SPEC.coreExpertise.map((skill, i) => (
@@ -234,7 +233,7 @@ export default function HomePage() {
           <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-slate-500">Contact</p>
           <h2 className="font-sora text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">Let&apos;s connect</h2>
           <p className="mt-4 text-slate-600">
-            Recruiters, founders, and engineers — include context on role, stack, and timeline.
+            If you're hiring or want to build something together, send a note with the role, the stack, and your timeline.
           </p>
           <motion.div
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap"
