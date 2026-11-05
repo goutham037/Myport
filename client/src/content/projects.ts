@@ -177,7 +177,10 @@ export const projects: Project[] = [
     description:
       "A consistent UI design system applied across eight screens, lifting the overall enterprise product experience. Front-end built in TypeScript and React.",
     tags: ["TypeScript", "React", "Design System", "UI"],
-    links: [{ label: "GitHub", href: "https://github.com/goutham037/lexamplify-template" }],
+    links: [
+      { label: "Case study", href: "/projects/lexamplify" },
+      { label: "GitHub", href: "https://github.com/goutham037/lexamplify-template" },
+    ],
     featured: true,
   },
   {
@@ -190,7 +193,10 @@ export const projects: Project[] = [
     description:
       "Classic computer vision and deep learning: OpenCV Haar Cascade for detection and a TensorFlow/Keras CNN for recognition, deployed with a browser front-end on AWS EC2.",
     tags: ["Python", "OpenCV", "TensorFlow/Keras", "CNN", "AWS EC2"],
-    links: [{ label: "GitHub", href: "https://github.com/goutham037/face-attend" }],
+    links: [
+      { label: "Case study", href: "/projects/face-attend" },
+      { label: "GitHub", href: "https://github.com/goutham037/face-attend" },
+    ],
     featured: true,
   },
   {

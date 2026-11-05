@@ -14,6 +14,8 @@ import NotFound from "@/pages/not-found";
 import InstagramMcpPage from "@/pages/projects/insta-mcp";
 import SpectrumErpPage from "@/pages/projects/spectrum-erp";
 import RecallPage from "@/pages/projects/recall";
+import LexAmplifyPage from "@/pages/projects/lexamplify";
+import FaceAttendPage from "@/pages/projects/face-attend";
 
 function Router() {
   return (
@@ -26,6 +28,8 @@ function Router() {
         <Route path="/projects/insta-mcp" component={InstagramMcpPage} />
         <Route path="/projects/spectrum-erp" component={SpectrumErpPage} />
         <Route path="/projects/recall" component={RecallPage} />
+        <Route path="/projects/lexamplify" component={LexAmplifyPage} />
+        <Route path="/projects/face-attend" component={FaceAttendPage} />
         <Route path="/" component={HomePage} />
         <Route component={NotFound} />
 
