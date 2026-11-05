@@ -12,6 +12,8 @@ import GsptEngineering from "@/pages/projects/gspt/Engineering";
 import GsptOutcomes from "@/pages/projects/gspt/Outcomes";
 import NotFound from "@/pages/not-found";
 import InstagramMcpPage from "@/pages/projects/insta-mcp";
+import SpectrumErpPage from "@/pages/projects/spectrum-erp";
+import RecallPage from "@/pages/projects/recall";
 
 function Router() {
   return (
@@ -22,6 +24,8 @@ function Router() {
         <Route path="/projects/gspt-mcp/outcomes" component={GsptOutcomes} />
         <Route path="/projects/gspt-mcp" component={GsptMcpPage} />
         <Route path="/projects/insta-mcp" component={InstagramMcpPage} />
+        <Route path="/projects/spectrum-erp" component={SpectrumErpPage} />
+        <Route path="/projects/recall" component={RecallPage} />
         <Route path="/" component={HomePage} />
         <Route component={NotFound} />
 

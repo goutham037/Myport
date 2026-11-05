@@ -6,6 +6,7 @@ import { HeroPremium } from "@/components/blueprint/HeroPremium";
 import { AnimatedSection } from "@/components/blueprint/AnimatedSection";
 import { SystemCard } from "@/components/portfolio/SystemCard";
 import { systems } from "@/components/portfolio/systems";
+import { GitHubStats } from "@/components/portfolio/GitHubStats";
 import { ProjectCard } from "@/components/site/ProjectCard";
 import { projects } from "@/content/projects";
 import { DESIGN_SPEC } from "@/content/designSpec";
@@ -195,6 +196,15 @@ export default function HomePage() {
             </motion.div>
           </CardContent>
         </Card>
+      </AnimatedSection>
+
+      <AnimatedSection
+        id="github"
+        eyebrow="Open source"
+        title="On GitHub"
+        subtitle="I build in the open and in teams. Here's the shape of the last year."
+      >
+        <GitHubStats />
       </AnimatedSection>
 
       <AnimatedSection

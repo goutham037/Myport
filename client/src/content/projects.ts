@@ -148,7 +148,7 @@ export const projects: Project[] = [
     description:
       "Automated BOM-based raw-material and packaging cost calculations and wired them into product pricing (raw material + packaging + markup). Built as part of Sociovia's Spectrum pipeline.",
     tags: ["JavaScript", "Firebase", "ERP", "Automation", "Pricing"],
-    links: [{ label: "Case study", href: "#" }],
+    links: [{ label: "Case study", href: "/projects/spectrum-erp" }],
     featured: true,
   },
   {
@@ -161,7 +161,10 @@ export const projects: Project[] = [
     description:
       "A chief-marketer agent with a persistent memory layer, Groq inference, and live brand context from the Meta Graph API. Shipped end to end during the hackathon.",
     tags: ["TypeScript", "Groq", "Meta Graph API", "AI Agent", "Memory"],
-    links: [{ label: "GitHub", href: "https://github.com/goutham037/recall" }],
+    links: [
+      { label: "Case study", href: "/projects/recall" },
+      { label: "GitHub", href: "https://github.com/goutham037/recall" },
+    ],
     featured: true,
   },
   {
