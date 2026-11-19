@@ -13,6 +13,9 @@ import GsptOutcomes from "@/pages/projects/gspt/Outcomes";
 import NotFound from "@/pages/not-found";
 import InstagramMcpPage from "@/pages/projects/insta-mcp";
 import SpectrumErpPage from "@/pages/projects/spectrum-erp";
+import SpectrumPlatform from "@/pages/projects/spectrum/Platform";
+import SpectrumEngineering from "@/pages/projects/spectrum/Engineering";
+import SpectrumOutcomes from "@/pages/projects/spectrum/Outcomes";
 import RecallPage from "@/pages/projects/recall";
 import LexAmplifyPage from "@/pages/projects/lexamplify";
 import FaceAttendPage from "@/pages/projects/face-attend";
@@ -26,6 +29,9 @@ function Router() {
         <Route path="/projects/gspt-mcp/outcomes" component={GsptOutcomes} />
         <Route path="/projects/gspt-mcp" component={GsptMcpPage} />
         <Route path="/projects/insta-mcp" component={InstagramMcpPage} />
+        <Route path="/projects/spectrum-erp/platform" component={SpectrumPlatform} />
+        <Route path="/projects/spectrum-erp/engineering" component={SpectrumEngineering} />
+        <Route path="/projects/spectrum-erp/outcomes" component={SpectrumOutcomes} />
         <Route path="/projects/spectrum-erp" component={SpectrumErpPage} />
         <Route path="/projects/recall" component={RecallPage} />
         <Route path="/projects/lexamplify" component={LexAmplifyPage} />
