@@ -140,14 +140,14 @@ export const projects: Project[] = [
   },
   {
     id: "spectrum-erp",
-    title: "Spectrum ERP — Cost & Pricing Automation",
-    category: "data",
+    title: "Spectrum ERP — Pharma Automation Platform",
+    category: "ai",
     year: "Shipped · 2026",
     summary:
-      "ERP automation that prices a product catalog straight from raw-material rates — loaded 519 rates and auto-priced 968 products with a BOM-based costing model.",
+      "Replaced a ₹1L/month ERP API for a pharma manufacturer with a self-built data layer: Playwright scrapers, a 24×7 WhatsApp alert engine, a role-based RAG assistant (Prism), and AI voice agents that call suppliers.",
     description:
-      "Automated BOM-based raw-material and packaging cost calculations and wired them into product pricing (raw material + packaging + markup). Built as part of Sociovia's Spectrum pipeline.",
-    tags: ["JavaScript", "Firebase", "ERP", "Automation", "Pricing"],
+      "Eight systems on one Postgres snapshot — scrapers, a scheduled ETL, Prism (a 36-tool RAG assistant), a BOM rate-sheet + Quick Quote API, dynamic forms, Sarvam AI voice agents, and an internal CRM. Saved ₹12L/yr and runs the operation on its own.",
+    tags: ["Python", "FastAPI", "Playwright", "RAG", "LLM Tools", "Sarvam Voice AI", "PostgreSQL", "AWS", "React"],
     links: [{ label: "Case study", href: "/projects/spectrum-erp" }],
     featured: true,
   },
