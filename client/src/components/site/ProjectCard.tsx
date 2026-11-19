@@ -19,8 +19,19 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <Tilt3D className="h-full" max={6}>
         <Card className="flex h-full flex-col overflow-hidden border-border bg-card/70 backdrop-blur-sm">
           {project.image ? (
-            <div className="relative h-44 w-full overflow-hidden border-b border-border bg-muted">
-              <img src={project.image} alt="" className="h-full w-full object-cover" loading="lazy" />
+            <div
+              className={`relative h-44 w-full overflow-hidden border-b border-border ${
+                project.imageFit === "contain" ? "bg-white" : "bg-muted"
+              }`}
+            >
+              <img
+                src={project.image}
+                alt=""
+                className={`h-full w-full ${
+                  project.imageFit === "contain" ? "object-contain p-4" : "object-cover"
+                }`}
+                loading="lazy"
+              />
               {project.featured ? (
                 <span className="absolute left-3 top-3 rounded-md bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground">
                   Featured

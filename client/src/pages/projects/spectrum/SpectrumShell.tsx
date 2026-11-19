@@ -83,7 +83,7 @@ function ChapterRail({ current }: { current: number }) {
               <Link key={c.slug} href={c.path}>
                 <span
                   ref={active ? activeRef : undefined}
-                  className={`group relative inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors sm:px-3 ${
+                  className={`group relative inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium transition-colors sm:px-3 ${
                     active
                       ? "bg-primary/10 text-primary"
                       : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"

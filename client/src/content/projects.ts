@@ -11,6 +11,8 @@ export type Project = {
   description: string;
   tags: string[];
   image?: string;
+  /** How the thumbnail fills its frame. Defaults to "cover"; use "contain" for logo/banner art. */
+  imageFit?: "cover" | "contain";
   links: ProjectLink[];
   featured?: boolean;
 };
@@ -148,6 +150,8 @@ export const projects: Project[] = [
     description:
       "Eight systems on one Postgres snapshot — scrapers, a scheduled ETL, Prism (a 36-tool RAG assistant), a BOM rate-sheet + Quick Quote API, dynamic forms, Sarvam AI voice agents, and an internal CRM. Saved ₹12L/yr and runs the operation on its own.",
     tags: ["Python", "FastAPI", "Playwright", "RAG", "LLM Tools", "Sarvam Voice AI", "PostgreSQL", "AWS", "React"],
+    image: "/projects/spectrum-erp.webp",
+    imageFit: "contain",
     links: [{ label: "Case study", href: "/projects/spectrum-erp" }],
     featured: true,
   },
