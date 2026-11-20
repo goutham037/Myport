@@ -22,6 +22,26 @@ import { Download, Mail, Phone } from "lucide-react";
 const META =
   "Sharan Goutham — first technical hire at Sociovia. I build and ship production systems: backends in Python and Node, data pipelines, CRM and ad automation, and the AI assistants on top.";
 
+/** Lead the grid with the flagship case studies, then the rest of the featured work. */
+const FEATURED_ORDER = [
+  "spectrum-erp",
+  "gspt-mcp",
+  "lexamplify",
+  "recall",
+  "face-attend",
+  "ask-griet",
+  "smart-holovision",
+  "insta-mcp",
+];
+
+const featuredProjects = projects
+  .filter((p) => p.featured)
+  .sort((a, b) => {
+    const ia = FEATURED_ORDER.indexOf(a.id);
+    const ib = FEATURED_ORDER.indexOf(b.id);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+
 export default function HomePage() {
   usePageMeta("Sharan Goutham — Software Engineer", META);
   const reduce = useReducedMotion();
@@ -69,7 +89,7 @@ export default function HomePage() {
           subtitle="Things I've built on my own time. A few are quick experiments; the ones with a case study are the real builds — worth a read."
         >
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.filter((p) => p.featured).map((project, i) => (
+            {featuredProjects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </div>
