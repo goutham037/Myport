@@ -6,8 +6,8 @@ import { easeOutExpo } from "@/lib/motion";
 type Variant = "white" | "muted";
 
 const shell: Record<Variant, string> = {
-  white: "bg-white border-slate-200",
-  muted: "bg-slate-50 border-slate-200",
+  white: "bg-white/85 backdrop-blur-sm border-slate-200/70",
+  muted: "bg-slate-50/85 backdrop-blur-sm border-slate-200/70",
 };
 
 type Props = {

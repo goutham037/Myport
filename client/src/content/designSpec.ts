@@ -6,10 +6,10 @@ export const DESIGN_SPEC = {
   brand: {
     name: "Sharan Goutham",
     /** One-line brand lockup shown in hero / nav */
-    lockup: "Sociovia · AI & growth engineering",
+    lockup: "First technical hire · Sociovia",
     role: "Lead AI Developer · Sociovia",
     tagline:
-      "I ship production systems where ads data, CRM state, assistants, and backend services meet — so growth teams move faster with fewer fragile handoffs.",
+      "I build the production systems a growth team runs on — the backends, the data, the assistants, and the glue between them.",
     personality: [
       "Practical",
       "Systems-first",
@@ -44,9 +44,9 @@ export const DESIGN_SPEC = {
   ],
   about: {
     paragraphs: [
-      "I build systems that keep working after launch day. That comes down to clear boundaries between the data, the automation, and the people using it, so nothing falls over when traffic or ad spend spikes.",
-      "Most of my time goes to ad analytics, CRM and follow-up flows, chat assistants, and the Python and Node services behind them.",
-      "At Sociovia I take features from a rough first cut to something stable in production, and I stay on them the whole way.",
+      "I'm a computer-science undergrad and the first technical hire at Sociovia, an AI growth startup. Most of what I do is take a feature from a rough first cut to something that holds up in production — and stay on it after launch day.",
+      "Day to day that's backends in Python and Node, Postgres and the data paths around it, CRM and follow-up flows, ad integrations, and the AI assistants on top. I care about clear boundaries between the data, the automation, and the people using it, so nothing falls over when traffic or ad spend spikes.",
+      "Outside work I build in the open — scrapers, MCP servers, RAG assistants — and write the real ones up as proper case studies. I'd rather ship something people depend on and learn from how it breaks than demo something that only works once.",
     ],
   },
   coreExpertise: [
@@ -63,9 +63,9 @@ export const DESIGN_SPEC = {
   ],
   /** Section chrome, meta, hero CTAs, and hero visual copy — single source for home + components */
   page: {
-    metaTitle: "Sharan · Lead AI Developer — Sociovia (growth systems)",
+    metaTitle: "Sharan Goutham — Software Engineer",
     metaDescription:
-      "Production AI and growth infrastructure: paid social intelligence, CRM automation, assistants, and dependable backends — built at Sociovia.",
+      "First technical hire at Sociovia. I build and ship production systems: backends in Python and Node, data pipelines, CRM and ad automation, and the AI assistants on top.",
     trustStripTitle: "Where the work shows up",
     about: {
       eyebrow: "Profile",

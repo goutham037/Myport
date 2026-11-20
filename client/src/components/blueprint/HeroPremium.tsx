@@ -10,7 +10,7 @@ const HERO_BLUE = "#2563EB";
 const HERO_TEXT = "#0F172A";
 
 const HERO_DESCRIPTION =
-  "I build the systems behind Sociovia's growth stack: ad analytics, CRM automation, AI assistants, and the backend that ties them together.";
+  "First technical hire at Sociovia, where I build the production systems the team runs on — CRM, ad automation, AI assistants, and the backends that tie them together.";
 
 /** Soft horizontal dissolve into the page — reads as canvas, not a photo box. */
 const FIGURE_MASK =
